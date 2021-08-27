@@ -8,7 +8,7 @@ const OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
 OSM.addTo(map)
 const getWMSLayer = function (layerId, time) {
     return (
-        L.tileLayer.wms('http://localhost/wms?', {
+        L.tileLayer.wms('http://powerlines.one/wms?', {
             layers: layerId,
             transparent: true,
             format: 'image/png',
