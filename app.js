@@ -19,10 +19,9 @@ const getWMSLayer = function (layerId, time) {
         })
     )
 }
-const pl = getWMSLayer("PL", isoYear).addTo(map)
-const substations = getWMSLayer("substations", isoYear).addTo(map)
-const generation = getWMSLayer("generation", isoYear).addTo(map)
-// const other = getWMSLayer("other", isoYear).addTo(map)
+const pl_voltage = getWMSLayer("pl_voltage", isoYear).addTo(map)
+const pl_modifications = getWMSLayer("pl_modifications", isoYear)
+const endpoints = getWMSLayer("endpoints", isoYear).addTo(map)
 
 
 const basemapControls = {
@@ -31,10 +30,9 @@ const basemapControls = {
 }
 
 const layersControls = {
-    "ЛЭП": pl,
-    "Подстанции": substations,
-    "Станции": generation,
-    // "Прочее": other,
+    "ЛЭП напряжение": pl_voltage,
+    "ЛЭП изменения": pl_modifications,
+    "Станции и подстанции": endpoints
 }
 
 L.control.layers(basemapControls, layersControls).addTo(map);
@@ -48,9 +46,9 @@ const updateYearValue = function () {
     const yearValue = this.value
     this.setAttribute("value", yearValue)
     const yearIso = yearValue + "-01-01"
-    pl.setParams({time: yearIso})
-    substations.setParams({time: yearIso})
-    generation.setParams({time: yearIso})
+    pl_voltage.setParams({time: yearIso})
+    pl_modifications.setParams({time: yearIso})
+    endpoints.setParams({time: yearIso})
     // other.setParams({time: yearIso})
 }
 
