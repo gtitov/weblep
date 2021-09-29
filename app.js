@@ -25,14 +25,14 @@ const endpoints = getWMSLayer("endpoints", isoYear).addTo(map)
 
 
 const basemapControls = {
-    "Спутник": satellite,
+    "Satellite": satellite,
     "OSM": osm
 }
 
 const layersControls = {
-    "ЛЭП напряжение": pl_voltage,
-    "ЛЭП изменения": pl_modifications,
-    "Станции и подстанции": endpoints
+    "Voltage of power lines": pl_voltage,
+    "Modifications of power lines": pl_modifications,
+    "Plants & substations": endpoints
 }
 
 L.control.layers(basemapControls, layersControls).addTo(map);
