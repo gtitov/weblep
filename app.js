@@ -15,7 +15,8 @@ const getWMSLayer = function (layerId, time) {
             layers: layerId,
             transparent: true,
             format: 'image/png',
-            time: time
+            time: time,
+            attribution: "&copy Karpachevsky"
         })
     )
 }
@@ -56,6 +57,9 @@ const updateYearValue = function () {
 yearRange.oninput = updateYearLabel
 yearRange.onchange = updateYearValue
 
+const legendToggle = document.getElementById("legend-toggle")
+const legend = document.getElementById("legend")
+legendToggle.addEventListener("click", () => legend.clientWidth ? legend.style.display = "none" : legend.style.display = "block")
 
 
 
