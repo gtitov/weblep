@@ -1,11 +1,33 @@
+const satellite_label = "Satellite"
+const osm_label = "OSM"
+const pl_voltage_label = "Voltage of power lines"
+const pl_modifications_label = "Modifications of power lines"
+const endpoints_label = "Plants & substations"
+const wms_attribution = "&copy A. M. Karpachevskiy, G. S. Titov"
+
+
 const yearRange = document.getElementById("yearrange")
 const yearLabel = document.getElementById("yearlabel")
 yearLabel.innerText = yearRange.value
 const isoYear = yearRange.value + "-01-01"
 
-const map = L.map('mapid').setView([56.5, 37.09], 7);
+const map = L.map(
+    'mapid',
+    {zoomControl: false}
+).setView([56.5, 37.09], 7);
+
+L.DomEvent.on(L.DomUtil.get('zoom-in'), 'click', function () {
+    map.setZoom(map.getZoom() + 1);
+});
+
+L.DomEvent.on(L.DomUtil.get('zoom-out'), 'click', function () {
+    map.setZoom(map.getZoom() - 1);
+});
+
+
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
 const satellite = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaW93cTc1MCIsImEiOiJja3QwYzJpazMwN2ltMnVwOW0zbnJrOWh4In0.bBbrEq6D4MkMvX--IxJVUw")
+
 
 // OSM.addTo(map)
 satellite.addTo(map)
@@ -16,7 +38,7 @@ const getWMSLayer = function (layerId, time) {
             transparent: true,
             format: 'image/png',
             time: time,
-            attribution: "&copy Karpachevsky"
+            attribution: wms_attribution
         })
     )
 }
@@ -26,14 +48,14 @@ const endpoints = getWMSLayer("endpoints", isoYear).addTo(map)
 
 
 const basemapControls = {
-    "Satellite": satellite,
-    "OSM": osm
+    [satellite_label]: satellite,
+    [osm_label]: osm
 }
 
 const layersControls = {
-    "Voltage of power lines": pl_voltage,
-    "Modifications of power lines": pl_modifications,
-    "Plants & substations": endpoints
+    [pl_voltage_label]: pl_voltage,
+    [pl_modifications_label]: pl_modifications,
+    [endpoints_label]: endpoints
 }
 
 L.control.layers(basemapControls, layersControls).addTo(map);

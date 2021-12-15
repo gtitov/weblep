@@ -27,21 +27,25 @@
   <!-- Map -->
   <div id="mapid"></div>
 
+  <div id="zoom-controls">
+    <button id="zoom-in" class="btn">
+      <i class="icon icon-plus"></i>
+    </button>
+    <button id="zoom-out" class="btn">
+      <i class="icon icon-minus"></i>
+    </button>
+  </div>
+  
+
   <!-- Year control -->
   <div id="yearcontrol">
-    <h1><span id="yearlabel"></span> year</h1>
+    <h1 id="yeartext"><span id="yearlabel"></span> year</h1>
     <input id="yearrange" type="range" name="year" min="1930" max="2021" value="2021" step="1">
   </div>
 
   <!-- Legend -->
-  <button id="legend-toggle" class="leaflet-control">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-octagon"
-      viewBox="0 0 16 16">
-      <path
-        d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" />
-      <path
-        d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-    </svg>
+  <button id="legend-toggle" class="btn">
+    <i class="icon icon-resize-horiz"></i>
   </button>
   <div id="legend">
     <object data="legend.svg" type="image/svg+xml"></object>
@@ -59,7 +63,7 @@
     <div class="modal-container">
       <div class="modal-header">
         <a href="#close" class="btn btn-clear float-right" aria-label="Close" onclick="document.getElementById('info-modal').classList.remove('active')"></a>
-        <div class="modal-title h5">Modal title</div>
+        <div class="modal-title h5">About</div>
       </div>
       <div class="modal-body">
         <div class="content">
@@ -87,10 +91,34 @@
     </svg>
   </a>
 
-  <a id="cite" href="#citation" class="btn btn-link icon-link" title="Cite">
+  <a id="cite" href="#citation" class="btn btn-link icon-link" onclick="document.getElementById('citation-modal').classList.add('active')" title="Cite">
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chat-square-quote-fill" viewBox="0 0 16 16">
       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm7.194 2.766a1.688 1.688 0 0 0-.227-.272 1.467 1.467 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 5.734 4C4.776 4 4 4.746 4 5.667c0 .92.776 1.666 1.734 1.666.343 0 .662-.095.931-.26-.137.389-.39.804-.81 1.22a.405.405 0 0 0 .011.59c.173.16.447.155.614-.01 1.334-1.329 1.37-2.758.941-3.706a2.461 2.461 0 0 0-.227-.4zM11 7.073c-.136.389-.39.804-.81 1.22a.405.405 0 0 0 .012.59c.172.16.446.155.613-.01 1.334-1.329 1.37-2.758.942-3.706a2.466 2.466 0 0 0-.228-.4 1.686 1.686 0 0 0-.227-.273 1.466 1.466 0 0 0-.469-.324l-.008-.004A1.785 1.785 0 0 0 10.07 4c-.957 0-1.734.746-1.734 1.667 0 .92.777 1.666 1.734 1.666.343 0 .662-.095.931-.26z"/>
-    </svg></a>
+    </svg>
+  </a>
+  <div class="modal" id="citation-modal">
+    <a href="#close" class="modal-overlay" aria-label="Close" onclick="document.getElementById('citation-modal').classList.remove('active')"></a>
+    <div class="modal-container">
+      <div class="modal-header">
+        <a href="#close" class="btn btn-clear float-right" aria-label="Close" onclick="document.getElementById('citation-modal').classList.remove('active')"></a>
+        <div class="modal-title h5">How to cite</div>
+      </div>
+      <div class="modal-body">
+        <div class="content">
+          <a href="https://www.mdpi.com/2306-5729/6/12/127#cite">Publishers site</a>
+          <br>
+          <a href="https://istina.msu.ru/publications/article/413639643/">Institution site</a>
+          <br>
+          <a href="data-v06-i12_20211214">Bibtex</a>
+          <br>
+          <a href="https://doi.org/10.3390/data6120127">https://doi.org/10.3390/data6120127</a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-link" href="#close" onclick="document.getElementById('citation-modal').classList.remove('active')">Close</a>
+      </div>
+    </div>
+  </div>
   
 
   <a id="github" href="https://github.com/gtitov/weblep" class="btn btn-link icon-link" title="Repository">

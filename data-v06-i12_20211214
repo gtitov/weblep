@@ -1,0 +1,17 @@
+
+@Article{data6120127,
+AUTHOR = {Karpachevskiy, Andrey and Titov, German and Filippova, Oksana},
+TITLE = {Development of A Spatiotemporal Database for Evolution Analysis of the Moscow Backbone Power Grid},
+JOURNAL = {Data},
+VOLUME = {6},
+YEAR = {2021},
+NUMBER = {12},
+ARTICLE-NUMBER = {127},
+URL = {https://www.mdpi.com/2306-5729/6/12/127},
+ISSN = {2306-5729},
+ABSTRACT = {Currently in the field of transport geography, the spatial evolution of electrical networks remain globally understudied. Publicly available data sources, including remote sensing data, have made it possible to collect spatial data on electrical networks, but at the same time a suitable data structure for storing them has not been defined. The main purpose of this study was the collection and structuring of spatiotemporal data on electric networks with the possibility of their further processing and analysis. To collect data, we used publicly available remote sensing and geoinformation systems, archival schemes and maps, as well as other documents related to the Moscow power grid. Additionally, we developed a web service for data publication and visualization. We conducted a small morphological analysis of the evolution of the network to show the possibilities of working with the database using a Python script. For example, we found that the portion of new lines has been declining since 1950s and in the 2010s the portion of partial reconstruction reached its maximum. Thus, the developed data structure and the database itself provide ample opportunities for the analysis and interpretation of the spatiotemporal development of electric networks. This can be used as a basis to study other territories. The main results of the study are published on the web service where the user can interactively choose a year and two forms of power lines representation to visualize on a map.},
+DOI = {10.3390/data6120127}
+}
+
+
+
