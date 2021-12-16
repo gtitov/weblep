@@ -60,6 +60,7 @@ body {
   top: 4rem;
   left: 0;
   z-index: 1;
+  border-top: 1px solid #5755d9;
 }
 
 #legend > object {
@@ -97,6 +98,12 @@ body {
   position: absolute;
   bottom: 20px;
   right: 10px;
+}
+
+#language {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 }
 
 
