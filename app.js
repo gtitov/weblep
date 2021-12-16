@@ -28,8 +28,8 @@ L.DomEvent.on(L.DomUtil.get('zoom-out'), 'click', function () {
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
 const satellite = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaW93cTc1MCIsImEiOiJja3QwYzJpazMwN2ltMnVwOW0zbnJrOWh4In0.bBbrEq6D4MkMvX--IxJVUw")
 
-osm.addTo(map)
-// satellite.addTo(map)
+// osm.addTo(map)
+satellite.addTo(map)
 
 
 const getWMSLayer = function (layerId, time) {
