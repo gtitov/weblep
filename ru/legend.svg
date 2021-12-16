@@ -7,10 +7,10 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="56.9807mm"
+   width="85mm"
    version="1.2"
-   viewBox="0 0 673 1771"
-   height="149.945mm"
+   viewBox="0 0 1003.9364 1771"
+   height="149.94501mm"
    id="svg302"
    sodipodi:docname="Легенда.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
@@ -27,19 +27,20 @@
      inkscape:window-height="1017"
      id="namedview304"
      showgrid="false"
-     inkscape:zoom="1.4998554"
-     inkscape:cx="107.68007"
-     inkscape:cy="310.02988"
+     inkscape:zoom="1.0605579"
+     inkscape:cx="125.02514"
+     inkscape:cy="245.13016"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="Legend"
-     inkscape:document-rotation="0" />
+     inkscape:document-rotation="0"
+     showguides="false" />
   <defs
      id="defs2" />
   <g
      fill="none"
-     stroke="black"
+     stroke="#000000"
      inkscape:label="Page"
      fill-rule="evenodd"
      stroke-linecap="square"
@@ -52,12 +53,11 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(1,0,0,1,0,0)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g4" />
     <g
@@ -65,12 +65,11 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(1,0,0,1,0,0)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g6" />
     <g
@@ -78,12 +77,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(11.8067,0,0,11.8067,0,0)"
-       font-family="MS Shell Dlg 2"
+       transform="scale(11.8067)"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g8" />
     <g
@@ -91,41 +90,25 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(0.999631,0,0,0.999631,0,0)"
-       font-family="MS Shell Dlg 2"
+       transform="scale(0.999631)"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g10" />
-    <g
-       fill="#ffffff"
-       stroke="none"
-       fill-opacity="1"
-       font-size="34.375"
-       font-weight="400"
-       font-style="normal"
-       transform="matrix(0.999631,0,0,0.999631,0,0)"
-       font-family="MS Shell Dlg 2"
-       id="g14">
-      <path
-         d="M-2,-2 L676,-2 L676,1774 L-2,1774 L-2,-2"
-         fill-rule="evenodd"
-         vector-effect="none"
-         id="path12" />
-    </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(0.999631,0,0,0.999631,0,0)"
-       font-family="MS Shell Dlg 2"
+       transform="scale(0.999631)"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g16" />
     <g
@@ -133,12 +116,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(11.8067,0,0,11.8067,0,0)"
-       font-family="MS Shell Dlg 2"
+       transform="scale(11.8067)"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g18" />
     <g
@@ -146,12 +129,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(11.8067,0,0,11.8067,0,0)"
-       font-family="MS Shell Dlg 2"
+       transform="scale(11.8067)"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g20" />
     <g
@@ -159,12 +142,11 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(1,0,0,1,0,0)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g22" />
   </g>
@@ -172,7 +154,7 @@
      id="defs25" />
   <g
      fill="none"
-     stroke="black"
+     stroke="#000000"
      inkscape:label="Legend"
      fill-rule="evenodd"
      stroke-linecap="square"
@@ -185,12 +167,11 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(1,0,0,1,0,0)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g27" />
     <g
@@ -198,12 +179,11 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(1,0,0,1,0,0)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g29" />
     <g
@@ -211,12 +191,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g31" />
     <g
@@ -224,41 +204,25 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g33" />
-    <g
-       fill="#ffffff"
-       stroke="none"
-       fill-opacity="1"
-       font-size="34.375"
-       font-weight="400"
-       font-style="normal"
-       transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
-       id="g37">
-      <path
-         d="M0,0 L56.2,0 L56.2,149.6 L0,149.6 L0,0"
-         fill-rule="evenodd"
-         vector-effect="none"
-         id="path35" />
-    </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g39" />
     <g
@@ -266,12 +230,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g41" />
     <g
@@ -279,12 +243,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g43" />
     <g
@@ -312,21 +276,23 @@
          y="97"
          font-family="'MS Shell Dlg 2'"
          id="text45"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan974">Подстанции, кВ</tspan></text>
+           id="tspan974"
+           x="20"
+           y="97">Подстанции, кВ</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g49" />
     <g
@@ -334,12 +300,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g55" />
     <g
@@ -347,12 +313,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g61" />
     <g
@@ -361,16 +327,16 @@
        stroke="#232323"
        fill-opacity="1"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,47.2267,231.411)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g65">
       <path
-         d="M34.7165,17 C34.7165,26.7846 26.7846,34.7165 17,34.7165 C7.21543,34.7165 -0.716535,26.7846 -0.716535,17 C-0.716535,7.21543 7.21543,-0.716535 17,-0.716535 C26.7846,-0.716535 34.7165,7.21543 34.7165,17 "
+         d="M 34.7165,17 C 34.7165,26.7846 26.7846,34.7165 17,34.7165 7.21543,34.7165 -0.716535,26.7846 -0.716535,17 -0.716535,7.21543 7.21543,-0.716535 17,-0.716535 26.7846,-0.716535 34.7165,7.21543 34.7165,17"
          fill-rule="evenodd"
          vector-effect="non-scaling-stroke"
          id="path63" />
@@ -380,12 +346,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g67" />
     <g
@@ -393,12 +359,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g71">
       <text
@@ -407,11 +373,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="223.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text69">220</text>
     </g>
     <g
@@ -419,12 +385,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g73" />
     <g
@@ -433,16 +399,16 @@
        stroke="#232323"
        fill-opacity="1"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,47.2267,308.154)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g77">
       <path
-         d="M34.7165,17 C34.7165,26.7846 26.7846,34.7165 17,34.7165 C7.21543,34.7165 -0.716535,26.7846 -0.716535,17 C-0.716535,7.21543 7.21543,-0.716535 17,-0.716535 C26.7846,-0.716535 34.7165,7.21543 34.7165,17 "
+         d="M 34.7165,17 C 34.7165,26.7846 26.7846,34.7165 17,34.7165 7.21543,34.7165 -0.716535,26.7846 -0.716535,17 -0.716535,7.21543 7.21543,-0.716535 17,-0.716535 26.7846,-0.716535 34.7165,7.21543 34.7165,17"
          fill-rule="evenodd"
          vector-effect="non-scaling-stroke"
          id="path75" />
@@ -452,12 +418,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g79" />
     <g
@@ -465,12 +431,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g83">
       <text
@@ -479,11 +445,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="288.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text81">330</text>
     </g>
     <g
@@ -491,12 +457,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g85" />
     <g
@@ -505,16 +471,16 @@
        stroke="#232323"
        fill-opacity="1"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,47.2267,384.897)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g89">
       <path
-         d="M34.7165,17 C34.7165,26.7846 26.7846,34.7165 17,34.7165 C7.21543,34.7165 -0.716535,26.7846 -0.716535,17 C-0.716535,7.21543 7.21543,-0.716535 17,-0.716535 C26.7846,-0.716535 34.7165,7.21543 34.7165,17 "
+         d="M 34.7165,17 C 34.7165,26.7846 26.7846,34.7165 17,34.7165 7.21543,34.7165 -0.716535,26.7846 -0.716535,17 -0.716535,7.21543 7.21543,-0.716535 17,-0.716535 26.7846,-0.716535 34.7165,7.21543 34.7165,17"
          fill-rule="evenodd"
          vector-effect="non-scaling-stroke"
          id="path87" />
@@ -524,12 +490,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g91" />
     <g
@@ -537,12 +503,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g95">
       <text
@@ -551,11 +517,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="353.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text93">500</text>
     </g>
     <g
@@ -563,12 +529,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g97" />
     <g
@@ -577,16 +543,16 @@
        stroke="#232323"
        fill-opacity="1"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,47.2267,461.641)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g101">
       <path
-         d="M34.7165,17 C34.7165,26.7846 26.7846,34.7165 17,34.7165 C7.21543,34.7165 -0.716535,26.7846 -0.716535,17 C-0.716535,7.21543 7.21543,-0.716535 17,-0.716535 C26.7846,-0.716535 34.7165,7.21543 34.7165,17 "
+         d="M 34.7165,17 C 34.7165,26.7846 26.7846,34.7165 17,34.7165 7.21543,34.7165 -0.716535,26.7846 -0.716535,17 -0.716535,7.21543 7.21543,-0.716535 17,-0.716535 26.7846,-0.716535 34.7165,7.21543 34.7165,17"
          fill-rule="evenodd"
          vector-effect="non-scaling-stroke"
          id="path99" />
@@ -596,12 +562,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g103" />
     <g
@@ -609,12 +575,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g107">
       <text
@@ -623,11 +589,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="418.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text105">750</text>
     </g>
     <g
@@ -635,12 +601,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g109" />
     <g
@@ -649,16 +615,16 @@
        stroke="#000000"
        fill-opacity="1"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="4.72441"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,53.13,544.287)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g113">
       <path
-         d="M0.188976,0.188976 L23.811,0.188976 L23.811,23.811 L0.188976,23.811 L0.188976,0.188976"
+         d="M 0.188976,0.188976 H 23.811 V 23.811 H 0.188976 V 0.188976"
          fill-rule="evenodd"
          vector-effect="none"
          id="path111" />
@@ -668,12 +634,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g115" />
     <g
@@ -681,12 +647,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g119">
       <text
@@ -701,21 +667,23 @@
          y="483.5"
          font-family="MS Shell Dlg 2"
          id="text117"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan976">Электростанции</tspan></text>
+           id="tspan976"
+           x="110"
+           y="483.5">Электростанции</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g121" />
     <g
@@ -723,12 +691,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g125">
       <text
@@ -743,21 +711,23 @@
          y="559"
          font-family="MS Shell Dlg 2"
          id="text123"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan978">ЛЭП, кВ</tspan></text>
+           id="tspan978"
+           x="20"
+           y="559">ЛЭП, кВ</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g127" />
     <g
@@ -765,16 +735,16 @@
        fill="none"
        stroke="#c8c800"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="5.90551"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,694.232)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g131">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path129" />
@@ -784,12 +754,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g133" />
     <g
@@ -797,12 +767,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g137">
       <text
@@ -811,11 +781,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="620.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text135">220</text>
     </g>
     <g
@@ -823,12 +793,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g139" />
     <g
@@ -836,16 +806,16 @@
        fill="none"
        stroke="#008c00"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="5.90551"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,770.975)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g143">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path141" />
@@ -855,12 +825,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g145" />
     <g
@@ -868,12 +838,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g149">
       <text
@@ -882,11 +852,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="685.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text147">330</text>
     </g>
     <g
@@ -894,12 +864,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g151" />
     <g
@@ -907,16 +877,16 @@
        fill="none"
        stroke="#a50f0a"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="5.90551"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,847.719)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g155">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path153" />
@@ -926,12 +896,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g157" />
     <g
@@ -939,12 +909,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g161">
       <text
@@ -953,11 +923,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="750.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text159">500</text>
     </g>
     <g
@@ -965,12 +935,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g163" />
     <g
@@ -978,16 +948,16 @@
        fill="none"
        stroke="#0000c8"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="5.90551"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,924.462)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g167">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path165" />
@@ -997,12 +967,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g169" />
     <g
@@ -1010,12 +980,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g173">
       <text
@@ -1024,11 +994,11 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="815.5"
-         font-family="MS Shell Dlg 2"
+         font-family="'MS Shell Dlg 2'"
          id="text171">750</text>
     </g>
     <g
@@ -1036,12 +1006,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g175" />
     <g
@@ -1049,12 +1019,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g179">
       <text
@@ -1069,21 +1039,23 @@
          y="891"
          font-family="MS Shell Dlg 2"
          id="text177"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan980">Модификации ЛЭП</tspan></text>
+           id="tspan980"
+           x="20"
+           y="891">Модификации ЛЭП</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g181" />
     <g
@@ -1091,16 +1063,16 @@
        fill="none"
        stroke="#24e5d8"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1086.21)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g185">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path183" />
@@ -1110,12 +1082,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g187" />
     <g
@@ -1123,12 +1095,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g191">
       <text
@@ -1143,21 +1115,23 @@
          y="952.5"
          font-family="MS Shell Dlg 2"
          id="text189"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan982">Строительство отпайки</tspan></text>
+           id="tspan982"
+           x="110"
+           y="952.5">Строительство отпайки</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g193" />
     <g
@@ -1165,16 +1139,16 @@
        fill="none"
        stroke="#e27d64"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1162.96)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g197">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path195" />
@@ -1184,12 +1158,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g199" />
     <g
@@ -1197,12 +1171,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g203">
       <text
@@ -1217,21 +1191,23 @@
          y="1017.5"
          font-family="MS Shell Dlg 2"
          id="text201"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan984">Демонтаж отпайки</tspan></text>
+           id="tspan984"
+           x="110"
+           y="1017.5">Демонтаж отпайки</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g205" />
     <g
@@ -1239,16 +1215,16 @@
        fill="none"
        stroke="#10e829"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1239.7)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g209">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path207" />
@@ -1258,12 +1234,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g211" />
     <g
@@ -1271,12 +1247,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g215">
       <text
@@ -1291,21 +1267,23 @@
          y="1082.5"
          font-family="MS Shell Dlg 2"
          id="text213"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan988">Строительство заходов разрезки</tspan></text>
+           id="tspan988"
+           x="110"
+           y="1082.5">Строительство заходов разрезки</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g217" />
     <g
@@ -1313,16 +1291,16 @@
        fill="none"
        stroke="#e327da"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1316.44)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g221">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path219" />
@@ -1332,12 +1310,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g223" />
     <g
@@ -1345,12 +1323,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g227">
       <text
@@ -1365,21 +1343,23 @@
          y="1147.5"
          font-family="MS Shell Dlg 2"
          id="text225"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan990">Демонтаж линии при разрезке</tspan></text>
+           id="tspan990"
+           x="110"
+           y="1147.5">Демонтаж линии при разрезке</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g229" />
     <g
@@ -1387,16 +1367,16 @@
        fill="none"
        stroke="#e31a1c"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1393.19)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g233">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path231" />
@@ -1406,12 +1386,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g235" />
     <g
@@ -1419,12 +1399,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g239">
       <text
@@ -1439,21 +1419,23 @@
          y="1212.5"
          font-family="MS Shell Dlg 2"
          id="text237"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan992">Демонтаж линии</tspan></text>
+           id="tspan992"
+           x="110"
+           y="1212.5">Демонтаж линии</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g241" />
     <g
@@ -1461,16 +1443,16 @@
        fill="none"
        stroke="#1d8c3b"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1469.93)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g245">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path243" />
@@ -1480,12 +1462,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g247" />
     <g
@@ -1493,12 +1475,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g251">
       <text
@@ -1513,21 +1495,23 @@
          y="1277.5"
          font-family="MS Shell Dlg 2"
          id="text249"
-         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42px;font-family:'MS Shell Dlg 2';-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"><tspan
            sodipodi:role="line"
-           id="tspan994">Строительство новой линии</tspan></text>
+           id="tspan994"
+           x="110"
+           y="1277.5">Строительство новой линии</tspan></text>
     </g>
     <g
        stroke-opacity="1"
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g253" />
     <g
@@ -1535,16 +1519,16 @@
        fill="none"
        stroke="#52ced2"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1546.67)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g257">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path255" />
@@ -1554,12 +1538,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g259" />
     <g
@@ -1567,12 +1551,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g263">
       <text
@@ -1593,12 +1577,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g265" />
     <g
@@ -1606,16 +1590,16 @@
        fill="none"
        stroke="#f0d730"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="11.811"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1623.42)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g269">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path267" />
@@ -1625,12 +1609,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g271" />
     <g
@@ -1638,12 +1622,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g275">
       <text
@@ -1664,12 +1648,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g277" />
     <g
@@ -1677,16 +1661,16 @@
        fill="none"
        stroke="#a8a8a8"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="3.07087"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,23.6133,1700.16)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g281">
       <path
-         d="M0,23.5 L83,23.5"
+         d="M 0,23.5 H 83"
          fill-rule="evenodd"
          vector-effect="none"
          id="path279" />
@@ -1696,12 +1680,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g283" />
     <g
@@ -1709,12 +1693,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="42"
+       font-size="42px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(1.18067,0,0,1.18067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g287">
       <text
@@ -1735,12 +1719,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g289" />
     <g
@@ -1748,12 +1732,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(0.999631,0,0,0.999631,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g291" />
     <g
@@ -1761,12 +1745,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g293" />
     <g
@@ -1774,12 +1758,12 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
        transform="matrix(11.8067,0,0,11.8067,0,4.72267)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g295" />
     <g
@@ -1787,12 +1771,11 @@
        fill="none"
        stroke="#000000"
        stroke-linecap="square"
-       font-size="34.375"
+       font-size="34.375px"
        stroke-width="1"
        font-weight="400"
        font-style="normal"
-       transform="matrix(1,0,0,1,0,0)"
-       font-family="MS Shell Dlg 2"
+       font-family="'MS Shell Dlg 2'"
        stroke-linejoin="bevel"
        id="g297" />
   </g>
@@ -1822,7 +1805,7 @@
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
-        <dc:title />
+        <dc:title></dc:title>
         <dc:date>2021-09-01T15:11:30</dc:date>
         <dc:identifier />
         <dc:description />
