@@ -12,7 +12,7 @@
    viewBox="0 0 673 1771"
    height="149.945mm"
    id="svg302"
-   sodipodi:docname="Legend.svg"
+   sodipodi:docname="Легенда.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -29,11 +29,12 @@
      showgrid="false"
      inkscape:zoom="1.4998554"
      inkscape:cx="107.68007"
-     inkscape:cy="283.36064"
+     inkscape:cy="310.02988"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="Legend" />
+     inkscape:current-layer="Legend"
+     inkscape:document-rotation="0" />
   <defs
      id="defs2" />
   <g
@@ -310,7 +311,10 @@
          font-style="normal"
          y="97"
          font-family="'MS Shell Dlg 2'"
-         id="text45">Substations, kV</text>
+         id="text45"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan974">Подстанции, кВ</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -696,7 +700,10 @@
          font-style="normal"
          y="483.5"
          font-family="MS Shell Dlg 2"
-         id="text117">Power plants</text>
+         id="text117"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan976">Электростанции</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -735,7 +742,10 @@
          font-style="normal"
          y="559"
          font-family="MS Shell Dlg 2"
-         id="text123">Power lines, kV</text>
+         id="text123"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan978">ЛЭП, кВ</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1058,7 +1068,10 @@
          font-style="normal"
          y="891"
          font-family="MS Shell Dlg 2"
-         id="text177">Power line modifications</text>
+         id="text177"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan980">Модификации ЛЭП</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1129,7 +1142,10 @@
          font-style="normal"
          y="952.5"
          font-family="MS Shell Dlg 2"
-         id="text189">Branch construction</text>
+         id="text189"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan982">Строительство отпайки</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1200,7 +1216,10 @@
          font-style="normal"
          y="1017.5"
          font-family="MS Shell Dlg 2"
-         id="text201">Branch dismantling</text>
+         id="text201"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan984">Демонтаж отпайки</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1271,7 +1290,10 @@
          font-style="normal"
          y="1082.5"
          font-family="MS Shell Dlg 2"
-         id="text213">Cut construction</text>
+         id="text213"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan988">Строительство заходов разрезки</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1342,7 +1364,10 @@
          font-style="normal"
          y="1147.5"
          font-family="MS Shell Dlg 2"
-         id="text225">Cut dismantling</text>
+         id="text225"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan990">Демонтаж линии при разрезке</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1413,7 +1438,10 @@
          font-style="normal"
          y="1212.5"
          font-family="MS Shell Dlg 2"
-         id="text237">Line dismantling</text>
+         id="text237"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan992">Демонтаж линии</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1484,7 +1512,10 @@
          font-style="normal"
          y="1277.5"
          font-family="MS Shell Dlg 2"
-         id="text249">New line construction</text>
+         id="text249"
+         style="-inkscape-font-specification:'MS Shell Dlg 2, Normal';font-family:'MS Shell Dlg 2';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:42px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;"><tspan
+           sodipodi:role="line"
+           id="tspan994">Строительство новой линии</tspan></text>
     </g>
     <g
        stroke-opacity="1"
@@ -1550,12 +1581,12 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="1342.5"
-         font-family="MS Shell Dlg 2"
-         id="text261">Re-routing construction</text>
+         font-family="'MS Shell Dlg 2'"
+         id="text261">Переустройство линии</text>
     </g>
     <g
        stroke-opacity="1"
@@ -1621,12 +1652,12 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="1407.5"
-         font-family="MS Shell Dlg 2"
-         id="text273">Re-routing dismantling</text>
+         font-family="'MS Shell Dlg 2'"
+         id="text273">Демонтаж при переустройстве</text>
     </g>
     <g
        stroke-opacity="1"
@@ -1692,12 +1723,12 @@
          stroke="none"
          xml:space="preserve"
          fill-opacity="1"
-         font-size="42"
+         font-size="42px"
          font-weight="400"
          font-style="normal"
          y="1472.5"
-         font-family="MS Shell Dlg 2"
-         id="text285">Unchanged segments</text>
+         font-family="'MS Shell Dlg 2'"
+         id="text285">Неизменные сегменты</text>
     </g>
     <g
        stroke-opacity="1"
