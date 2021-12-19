@@ -10,6 +10,7 @@ body {
 #mapid {
   height: 100vh;
   z-index: 0;
+  cursor: pointer;
 }
 
 #zoom-controls {
@@ -70,12 +71,16 @@ body {
 
 .icon-link {
   padding: 0;
-  
 }
 
 .icon-link > svg {
   width: 1.5rem;
-  color: #7877b6;
+  color: hsl(241, 63%, 70%);
+}
+
+.icon-link > svg:hover {
+  width: 1.5rem;
+  color: hsl(241, 63%, 40%);
 }
 
 #info {
