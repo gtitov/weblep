@@ -107,17 +107,19 @@ body {
   right: 10px;
 }
 
-#language {
+.btn-language {
   position: absolute;
   bottom: 1rem;
   left: 1rem;
 }
 
+#language-short {
+  display: none
+}
 
 
 
-
-@media screen and (max-width: 786px) {
+@media screen and (max-width: 900px) {
   #yearrange {
     width: 90%;
   }
@@ -125,4 +127,14 @@ body {
   #yeartext {
     font-size: 1rem;
   }
+
+  #language {
+    display: none
+  }
+
+  #language-short {
+    display: block
+  }
+
+
 }
