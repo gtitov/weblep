@@ -2,6 +2,7 @@ const satellite_legend = "Спутник"
 const osm_legend = "ОСМ"
 const pl_voltage_legend = "Напряжение ЛЭП"
 const pl_modifications_legend = "Изменения ЛЭП"
+const pl_age_legend = "Возраст ЛЭП"
 const endpoints_legend = "Станции и подстанции"
 const wms_attribution = "&copy А. М. Карпачевский, Г. С. Титов"
 
@@ -46,6 +47,7 @@ const getWMSLayer = function (layerId, time) {
 
 const pl_voltage = getWMSLayer("pl_voltage", isoYear).addTo(map)
 const pl_modifications = getWMSLayer("pl_modifications", isoYear)
+const pl_age = getWMSLayer("pl_age", isoYear)
 const endpoints = getWMSLayer("endpoints_ru", isoYear).addTo(map)  // change because of labels
 
 
@@ -57,6 +59,7 @@ const basemapControls = {
 const layersControls = {
     [pl_voltage_legend]: pl_voltage,
     [pl_modifications_legend]: pl_modifications,
+    [pl_age_legend]: pl_age,
     [endpoints_legend]: endpoints
 }
 
