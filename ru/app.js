@@ -82,6 +82,7 @@ const updateYearValue = function () {
     const yearIso = yearValue + "-01-01"
     pl_voltage.setParams({ time: yearIso })
     pl_modifications.setParams({ time: yearIso })
+    pl_age.setParams({ time: yearIso })
     endpoints.setParams({ time: yearIso })
     // other.setParams({time: yearIso})
 }
