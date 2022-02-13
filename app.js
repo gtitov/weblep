@@ -73,6 +73,7 @@ const satellite_legend = "Satellite"
 const osm_legend = "OSM"
 const pl_voltage_legend = "Voltage of power lines"
 const pl_modifications_legend = "Modifications of power lines"
+const pl_age_legend = "Age of power lines"
 const endpoints_legend = "Plants & substations"
 const wms_attribution = "&copy A. M. Karpachevskiy, G. S. Titov"
 
@@ -105,7 +106,7 @@ satellite.addTo(map)
 
 const getWMSLayer = function (layerId, time) {
     return (
-        L.tileLayer.betterWms('https://powerlines.one/wms', {
+        L.tileLayer.wms('https://powerlines.one/wms', {  // change to "L.tileLayer.betterWms('https://powerlines.one/wms', {" to try betterWMS
             layers: layerId,
             transparent: true,
             format: 'image/png',
@@ -117,6 +118,7 @@ const getWMSLayer = function (layerId, time) {
 
 const pl_voltage = getWMSLayer("pl_voltage", isoYear).addTo(map)
 const pl_modifications = getWMSLayer("pl_modifications", isoYear)
+const pl_age = getWMSLayer("pl_age", isoYear)
 const endpoints = getWMSLayer("endpoints", isoYear).addTo(map)
 
 
@@ -128,6 +130,7 @@ const basemapControls = {
 const layersControls = {
     [pl_voltage_legend]: pl_voltage,
     [pl_modifications_legend]: pl_modifications,
+    [pl_age_legend]: pl_age,
     [endpoints_legend]: endpoints
 }
 
@@ -150,6 +153,7 @@ const updateYearValue = function () {
     const yearIso = yearValue + "-01-01"
     pl_voltage.setParams({ time: yearIso })
     pl_modifications.setParams({ time: yearIso })
+    pl_age.setParams({ time: yearIso })
     endpoints.setParams({ time: yearIso })
     // other.setParams({time: yearIso})
 }
