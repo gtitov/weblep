@@ -10,7 +10,7 @@ body {
 #mapid {
   height: 100vh;
   z-index: 0;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 #zoom-controls {
