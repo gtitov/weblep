@@ -106,7 +106,7 @@ satellite.addTo(map)
 
 const getWMSLayer = function (layerId, time) {
     return (
-        L.tileLayer.wms('http://93.180.19.45/powerlines/wms?', {  // change to "L.tileLayer.betterWms('https://powerlines.one/wms', {" to try betterWMS
+        L.tileLayer.wms('https://powerlines.one/wms?', {  // change to "L.tileLayer.betterWms('https://powerlines.one/wms', {" to try betterWMS
             layers: layerId,
             transparent: true,
             format: 'image/png',
