@@ -4,6 +4,9 @@ const pl_voltage_legend = "Напряжение ЛЭП"
 const pl_modifications_legend = "Изменения ЛЭП"
 const pl_age_legend = "Возраст ЛЭП"
 const endpoints_legend = "Станции и подстанции"
+const el_centrality_legend = "el_centrality"
+const pl_bc_legend = "pl_bc"
+const ep_cc_legend = "ep_cc"
 const wms_attribution = "&copy А. М. Карпачевский, Г. С. Титов"
 
 
@@ -49,6 +52,9 @@ const pl_voltage = getWMSLayer("pl_voltage", isoYear).addTo(map)
 const pl_modifications = getWMSLayer("pl_modifications", isoYear)
 const pl_age = getWMSLayer("pl_age", isoYear)
 const endpoints = getWMSLayer("endpoints_ru", isoYear).addTo(map)  // change because of labels
+const el_centrality = getWMSLayer("el_centrality", isoYear)
+const pl_bc = getWMSLayer("pl_bc", isoYear)
+const ep_cc = getWMSLayer("ep_cc", isoYear)
 
 
 const basemapControls = {
@@ -60,7 +66,10 @@ const layersControls = {
     [pl_voltage_legend]: pl_voltage,
     [pl_modifications_legend]: pl_modifications,
     [pl_age_legend]: pl_age,
-    [endpoints_legend]: endpoints
+    [endpoints_legend]: endpoints,
+    [el_centrality_legend]: el_centrality,
+    [pl_bc_legend]: pl_bc,
+    [ep_cc_legend]: ep_cc
 }
 
 L.control.layers(basemapControls, layersControls).addTo(map);
@@ -84,6 +93,9 @@ const updateYearValue = function () {
     pl_modifications.setParams({ time: yearIso })
     pl_age.setParams({ time: yearIso })
     endpoints.setParams({ time: yearIso })
+    el_centrality.setParams({ time: yearIso })
+    pl_bc.setParams({ time: yearIso })
+    ep_cc.setParams({ time: yearIso })
     // other.setParams({time: yearIso})
 }
 
