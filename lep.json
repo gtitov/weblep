@@ -1,0 +1,139 @@
+{
+  "version": 8,
+  "name": "lep",
+  "metadata": {
+    "maputnik:license": "https://github.com/maputnik/osm-liberty/blob/gh-pages/LICENSE.md",
+    "maputnik:renderer": "mbgljs",
+    "openmaptiles:version": "3.x"
+  },
+  "center": [36.35563, 55.21056],
+  "zoom": 13,
+  "sources": {
+    "lep": {
+      "type": "vector",
+      "url": "http://localhost:8080/capabilities/lep.json"
+    }
+  },
+  "sprite": "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "layers": [
+    {
+      "id": "PL_voltage",
+      "type": "line",
+      "source": "lep",
+      "source-layer": "PL_voltage",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": [
+          "match",
+          ["get", "Voltage"],
+          220, "#C8C800",
+          330, "#008C00",
+          500, "#A50F0A",
+          750, "#0000C8",
+          "#999999"
+        ],
+        "line-width": 2
+      }
+    },
+    {
+      "id": "PL_age",
+      "type": "line",
+      "source": "lep",
+      "source-layer": "PL_voltage",
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-color": [
+          "step",
+          ["get", "age"],
+          "#FDE725",
+          2, "#C2E023",
+          5, "#85D44A",
+          10, "#5EC874",
+          15, "#2BB07E",
+          20, "#85D44A",
+          30, "#25858E",
+          40, "#2D6F8E",
+          50, "#38588C",
+          60, "#423E85",
+          70, "#482173",
+          80, "#541763"
+        ],
+        "line-width": 2
+      }
+    },
+    {
+      "id": "PL_modifications",
+      "type": "line",
+      "source": "lep",
+      "source-layer": "PL_modifications",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": [
+          "match",
+          ["get", "Segment_Type"],
+          "Branch construction",
+          "#24E5D8",
+          "Branch dismantling",
+          "#E27D64",
+          "Cut construction",
+          "#10E829",
+          "Cut dismantling",
+          "#E640DE",
+          "Line dismantling",
+          "#E63436",
+          "New line construction",
+          "#1D8C3B",
+          "Re-routing construction",
+          "#52CED2",
+          "Re-routing dismantling",
+          "#A8BA63",
+          "#000000"
+        ]
+      }
+    },
+    {
+      "id": "Endpoints",
+      "type": "circle",
+      "source": "lep",
+      "source-layer": "endpoints",
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "circle-color": [
+          "match",
+          ["get", "Voltage"],
+          110, "#00B4C8",
+          220, "#C8C800",
+          330, "#008C00",
+          500, "#A50F0A",
+          750, "#0000C8",
+          "#FFFFFF"
+        ],
+        "circle-stroke-color": "#999999",
+        "circle-stroke-width": 1
+      }
+    },
+    {
+      "id": "El_centrality",
+      "type": "line",
+      "source": "lep",
+      "source-layer": "El_centrality",
+      "layout": {"visibility": "none"}
+    },
+    {
+      "id": "PL_BC",
+      "type": "line",
+      "source": "lep",
+      "source-layer": "PL_BC",
+      "layout": {"visibility": "none"}
+    },
+    {
+      "id": "EP_CC",
+      "type": "circle",
+      "source": "lep",
+      "source-layer": "EP_CC",
+      "layout": {"visibility": "none"}
+    }
+  ],
+  "id": "osm-liberty"
+}
