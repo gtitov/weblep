@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         center: [37.625, 55.751], // starting position [lng, lat]
         zoom: 5, // starting zoom,
         minZoom: 4,
-        maxZoom: 10
+        maxZoom: 11
     });
 
     map.on("load", function () {
@@ -189,6 +189,41 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("yearlabel").innerText = yearValue
             updateYearFilter(yearValue)
         })
+
+
+
+        // Hover
+        vector_layers.forEach(function(vl) {
+            map.on("mouseenter", vl.id, function() {
+                map.getCanvas().style.cursor = 'pointer'
+            })
+            map.on("mouseleave", vl.id, function() {
+                map.getCanvas().style.cursor = '';
+            })
+        })
+
+
+
+        // Click
+        const popup_attributes = ["Name_en", "Name", "year", "Voltage", "age", "Segment_Type", "Dissolution", "El_C_Distr", "El_Cen", "BC"]
+        map.on("click", function(e) {
+            const feature = map.queryRenderedFeatures(e.point)[0]
+            if (feature) {
+                const popup_content = document.createElement("div")
+                popup_attributes.forEach(function(pa) {
+                    if (feature.properties[pa]) {
+                        const popup_row = document.createElement("p")
+                        popup_row.textContent = `${pa}: ${feature.properties[pa]}`
+                        popup_content.appendChild(popup_row)
+                    }
+                })
+                new maplibregl.Popup()
+                    .setLngLat(e.lngLat)
+                    .setHTML(popup_content.innerHTML)
+                    .addTo(map);
+            }
+        })
+
     })
 })
 
