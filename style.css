@@ -80,6 +80,7 @@ body {
   border-top: 1px solid #5755d9;
   background-color: white;
   z-index: 1;
+  display: none
 }
 
 #legend > object {
