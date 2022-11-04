@@ -11,7 +11,7 @@
   "sources": {
     "lep": {
       "type": "vector",
-      "url": "http://localhost:8080/capabilities/lep.json"
+      "url": "http://localhost:9090/capabilities/lep.json"
     },
     "satellite": {
       "type": "raster",
