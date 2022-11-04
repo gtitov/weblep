@@ -1,28 +1,44 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const vector_layers = {  // according to lep.json
-        "PL_voltage": "Voltage of power lines",
-        "PL_modifications": "Modifications of power lines",
-        "PL_age": "Age of power lines",
-        "Endpoints": "Plants & substations",
-        "El_centrality": "Centrality",
-        "PL_BC": "PL BC",
-        "EP_CC": "EP CC"
-
-    }
-    const satellite_legend = "Satellite"
-    const osm_legend = "OSM"
-    const pl_voltage_legend = "Voltage of power lines"
-    const pl_modifications_legend = "Modifications of power lines"
-    const pl_age_legend = "Age of power lines"
-    const endpoints_legend = "Plants & substations"
-    const el_centrality_legend = "el_centrality"
-    const pl_bc_legend = "pl_bc"
-    const ep_cc_legend = "ep_cc"
-    const wms_attribution = "&copy A. M. Karpachevskiy, G. S. Titov"
-
-    const yearRange = document.getElementById("yearrange")
-    const yearLabel = document.getElementById("yearlabel")
-    yearLabel.innerText = yearRange.value
+document.addEventListener("DOMContentLoaded", function () {
+    const raster_layers = [
+        {
+            id: "mono-layer",
+            title: "Mono"
+        },
+        {
+            id: "satellite-layer",
+            title: "Satellite"
+        }
+    ]
+    const vector_layers = [
+        {
+            id: "PL_voltage",
+            title: "Voltage of power lines"
+        },
+        {
+            id: "PL_modifications",
+            title: "Modifications of power lines"
+        },
+        {
+            id: "PL_age",
+            title: "Age of power lines"
+        },
+        {
+            id: "Endpoints",
+            title: "Plants & substations"
+        },
+        {
+            id: "El_centrality",
+            title: "Centrality"
+        },
+        {
+            id: "PL_BC",
+            title: "PL BC"
+        },
+        {
+            id: "EP_CC",
+            title: "EP CC"
+        }
+    ]
 
     const map = new maplibregl.Map({
         container: 'mapid', // container id
@@ -34,87 +50,149 @@ document.addEventListener("DOMContentLoaded", function() {
         maxZoom: 10
     });
 
-    map.on("load", function() {
+    map.on("load", function () {
+        // Initial year select
+        document.getElementById("yearlabel").innerText = document.getElementById("yearrange").value
+
+
+
+        // Legend control
+        const legendToggle = document.getElementById("legend-toggle")
+        const legend = document.getElementById("legend")
+        legendToggle.addEventListener("click", () => legend.clientWidth ? legend.style.display = "none" : legend.style.display = "block")
+
+
+
+        // Layers control
+        const layersToggle = document.getElementById("layers-toggle")
+        const layers = document.getElementById("layers")
+        layersToggle.addEventListener("click", () => layers.clientWidth ? layers.style.display = "none" : layers.style.display = "block")
+
+        const basemaps_part = document.createElement("div")
+        basemaps_part.className = "form-group"
+
+        const basemaps_title = document.createElement("label")
+        basemaps_title.className = "form-label"
+        basemaps_title.textContent = "Basemaps"
+
+        basemaps_part.appendChild(basemaps_title)
+
+        raster_layers.forEach(function (rl) {
+            const label = document.createElement("label")
+            label.className = "form-checkbox"
+
+            const checkbox = document.createElement("input")
+            checkbox.type = "checkbox"
+            checkbox.name = "basemaps"
+            checkbox.value = rl.id
+            checkbox.checked = rl.id == "mono-layer" ? true : false
+            checkbox.onchange = function () {
+                const clickedLayer = this.value
+
+                const visibility = map.getLayoutProperty(
+                    clickedLayer,
+                    'visibility'
+                );
+
+                // Toggle layer visibility by changing the layout object's visibility property.
+                if (visibility === 'visible') {
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                } else {
+                    map.setLayoutProperty(
+                        clickedLayer,
+                        'visibility',
+                        'visible'
+                    );
+                }
+            }
+            label.appendChild(checkbox)
+
+            const i = document.createElement("i")
+            i.className = "form-icon"
+            label.appendChild(i)
+
+            label.append(rl.title)
+
+            basemaps_part.appendChild(label)
+        })
+        document.getElementById("layers").appendChild(basemaps_part)
+
+
+        const layers_part = document.createElement("div")
+        layers_part.className = "form-group"
+
+        const layers_title = document.createElement("label")
+        layers_title.className = "form-label"
+        layers_title.textContent = "Layers"
+
+        layers_part.appendChild(layers_title)
+
+        vector_layers.forEach(function (vl) {
+            const label = document.createElement("label")
+            label.className = "form-checkbox"
+
+            const checkbox = document.createElement("input")
+            checkbox.type = "checkbox"
+            checkbox.name = "layers"
+            checkbox.value = vl.id
+            checkbox.checked = vl.id == "PL_voltage" | vl.id == "Endpoints" ? true : false
+            checkbox.onchange = function () {
+                const clickedLayer = this.value
+
+                const visibility = map.getLayoutProperty(
+                    clickedLayer,
+                    'visibility'
+                );
+
+                // Toggle layer visibility by changing the layout object's visibility property.
+                if (visibility === 'visible') {
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                } else {
+                    map.setLayoutProperty(
+                        clickedLayer,
+                        'visibility',
+                        'visible'
+                    );
+                }
+            }
+            label.appendChild(checkbox)
+
+            const i = document.createElement("i")
+            i.className = "form-icon"
+            label.appendChild(i)
+
+            label.append(vl.title)
+
+            layers_part.appendChild(label)
+        })
+        document.getElementById("layers").appendChild(layers_part)
+
+
+
+        // Zoom control
         document.getElementById("zoom-in").addEventListener("click", () => map.zoomIn())
         document.getElementById("zoom-out").addEventListener("click", () => map.zoomOut())
 
-        // const a = () => {console.log(this.value)}
-        // yearRange.oninput = a
 
+
+        // Range control
         const updateYearFilter = (year) => {
-            Object.keys(vector_layers).forEach(layer_name => {
-                map.setFilter(layer_name, ["==", ["get", "year"], year])
+            vector_layers.forEach(vector_layer => {
+                map.setFilter(vector_layer.id, ["==", ["get", "year"], year])
             })
         }
 
-        updateYearFilter(parseInt(yearRange.value))
+        updateYearFilter(parseInt(document.getElementById("yearrange").value))
 
-        yearRange.addEventListener("input", () => {
-            const yearValue = parseInt(yearRange.value)
-            yearLabel.innerText = yearValue
+        document.getElementById("yearrange").addEventListener("input", () => {
+            const yearValue = parseInt(document.getElementById("yearrange").value)
+            document.getElementById("yearlabel").innerText = yearValue
             updateYearFilter(yearValue)
         })
     })
-
-
-
-
 })
 
 
-
-
-
-
-
-
-
-// const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
-// const satellite = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaW93cTc1MCIsImEiOiJja3QwYzJpazMwN2ltMnVwOW0zbnJrOWh4In0.bBbrEq6D4MkMvX--IxJVUw")
-
-// // osm.addTo(map)
-// satellite.addTo(map)
-
-
-
-// const pl_voltage = getWMSLayer("pl_voltage", isoYear).addTo(map)
-// const pl_modifications = getWMSLayer("pl_modifications", isoYear)
-// const pl_age = getWMSLayer("pl_age", isoYear)
-// const endpoints = getWMSLayer("endpoints", isoYear).addTo(map)
-// const el_centrality = getWMSLayer("el_centrality", isoYear)
-// const pl_bc = getWMSLayer("pl_bc", isoYear)
-// const ep_cc = getWMSLayer("ep_cc", isoYear)
-
-
-// const basemapControls = {
-//     [satellite_legend]: satellite,
-//     [osm_legend]: osm
-// }
-
-// const layersControls = {
-//     [pl_voltage_legend]: pl_voltage,
-//     [pl_modifications_legend]: pl_modifications,
-//     [pl_age_legend]: pl_age,
-//     [endpoints_legend]: endpoints,
-//     [el_centrality_legend]: el_centrality,
-//     [pl_bc_legend]: pl_bc,
-//     [ep_cc_legend]: ep_cc
-// }
-
-// L.control.layers(basemapControls, layersControls).addTo(map);
-
-
-
-
-
-
-
-
-
-
-const legendToggle = document.getElementById("legend-toggle")
-const legend = document.getElementById("legend")
-legendToggle.addEventListener("click", () => legend.clientWidth ? legend.style.display = "none" : legend.style.display = "block")
 
 
 
