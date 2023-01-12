@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateYearFilter(parseInt(document.getElementById("yearrange").value))
 
-        document.getElementById("yearrange").addEventListener("input", () => {
+        document.getElementById("yearrange").addEventListener("change", () => {
             const yearValue = parseInt(document.getElementById("yearrange").value)
             document.getElementById("yearlabel").innerText = yearValue
             updateYearFilter(yearValue)
