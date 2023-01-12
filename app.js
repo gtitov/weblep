@@ -26,18 +26,18 @@ document.addEventListener("DOMContentLoaded", function () {
             id: "Endpoints",
             title: "Plants & substations"
         },
-        {
-            id: "El_centrality",
-            title: "Centrality"
-        },
-        {
-            id: "PL_BC",
-            title: "PL BC"
-        },
-        {
-            id: "EP_CC",
-            title: "EP CC"
-        }
+        // {
+        //     id: "El_centrality",
+        //     title: "Centrality"
+        // },
+        // {
+        //     id: "PL_BC",
+        //     title: "PL BC"
+        // },
+        // {
+        //     id: "EP_CC",
+        //     title: "EP CC"
+        // }
     ]
 
     const map = new maplibregl.Map({
