@@ -1,17 +1,13 @@
 {
   "version": 8,
   "name": "lep",
-  "metadata": {
-    "maputnik:license": "https://github.com/maputnik/osm-liberty/blob/gh-pages/LICENSE.md",
-    "maputnik:renderer": "mbgljs",
-    "openmaptiles:version": "3.x"
-  },
+  "metadata": {},
   "center": [36.35563, 55.21056],
   "zoom": 13,
   "sources": {
     "lep": {
       "type": "vector",
-      "url": "http://localhost:9090/capabilities/lep.json"
+      "url": "https://tiles.powerlines.one/capabilities/lep.json"
     },
     "satellite": {
       "type": "raster",
@@ -51,10 +47,12 @@
         "line-color": [
           "match",
           ["get", "Voltage"],
-          220, "#C8C800",
+          220, "#C7C700",
           330, "#008C00",
-          500, "#A50F0A",
-          750, "#0000C8",
+          400, "#EF951E",
+          500, "#C70000",
+          750, "#0000C7",
+          800, "#0000C7",
           "#999999"
         ],
         "line-width": 2
@@ -136,28 +134,7 @@
         "circle-stroke-color": "#999999",
         "circle-stroke-width": 1
       }
-    },
-    {
-      "id": "El_centrality",
-      "type": "line",
-      "source": "lep",
-      "source-layer": "El_centrality",
-      "layout": {"visibility": "none"}
-    },
-    {
-      "id": "PL_BC",
-      "type": "line",
-      "source": "lep",
-      "source-layer": "PL_BC",
-      "layout": {"visibility": "none"}
-    },
-    {
-      "id": "EP_CC",
-      "type": "circle",
-      "source": "lep",
-      "source-layer": "EP_CC",
-      "layout": {"visibility": "none"}
     }
   ],
-  "id": "osm-liberty"
+  "id": "lep"
 }
