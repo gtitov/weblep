@@ -42,7 +42,7 @@
       "type": "line",
       "source": "lep",
       "source-layer": "PL_voltage",
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "line-color": [
           "match",
@@ -89,7 +89,7 @@
       "type": "line",
       "source": "lep",
       "source-layer": "PL_modifications",
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": [
           "match",
@@ -110,6 +110,8 @@
           "#52CED2",
           "Re-routing dismantling",
           "#A8BA63",
+          "Voltage modification",
+          "#8856A7",
           "#000000"
         ]
       }
@@ -119,7 +121,7 @@
       "type": "circle",
       "source": "lep",
       "source-layer": "endpoints",
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "circle-color": [
           "match",
