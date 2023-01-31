@@ -42,7 +42,7 @@
       "type": "line",
       "source": "lep",
       "source-layer": "PL_voltage",
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": [
           "match",
@@ -89,7 +89,7 @@
       "type": "line",
       "source": "lep",
       "source-layer": "PL_modifications",
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "line-color": [
           "match",
@@ -121,19 +121,26 @@
       "type": "circle",
       "source": "lep",
       "source-layer": "endpoints",
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
         "circle-color": [
           "match",
           ["get", "Voltage"],
           110, "#00B4C8",
-          220, "#C8C800",
+          220, "#C7C700",
           330, "#008C00",
-          500, "#A50F0A",
-          750, "#0000C8",
+          400, "#EF951E",
+          500, "#C70000",
+          750, "#0000C7",
+          800, "#0000C7",
           "#FFFFFF"
         ],
-        "circle-stroke-color": "#999999",
+        "circle-stroke-color": [
+          "match",
+          ["get", "Type"],
+          "ЭС", "#000000",
+          "#AAAAAA"
+        ],
         "circle-stroke-width": 1
       }
     }
