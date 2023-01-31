@@ -25,19 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             id: "Endpoints",
             title: "Plants & substations"
-        },
-        // {
-        //     id: "El_centrality",
-        //     title: "Centrality"
-        // },
-        // {
-        //     id: "PL_BC",
-        //     title: "PL BC"
-        // },
-        // {
-        //     id: "EP_CC",
-        //     title: "EP CC"
-        // }
+        }
     ]
 
     const map = new maplibregl.Map({
@@ -193,11 +181,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // Hover
-        vector_layers.forEach(function(vl) {
-            map.on("mouseenter", vl.id, function() {
+        vector_layers.forEach(function (vl) {
+            map.on("mouseenter", vl.id, function () {
                 map.getCanvas().style.cursor = 'pointer'
             })
-            map.on("mouseleave", vl.id, function() {
+            map.on("mouseleave", vl.id, function () {
                 map.getCanvas().style.cursor = '';
             })
         })
@@ -205,23 +193,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // Click
-        const popup_attributes = ["Name_en", "Name", "year", "Voltage", "age", "Segment_Type", "Dissolution", "El_C_Distr", "El_Cen", "BC"]
-        map.on("click", function(e) {
+        map.on("click", function (e) {
             const feature = map.queryRenderedFeatures(e.point)[0]
-            if (feature) {
-                const popup_content = document.createElement("div")
-                popup_attributes.forEach(function(pa) {
-                    if (feature.properties[pa]) {
-                        const popup_row = document.createElement("p")
-                        popup_row.textContent = `${pa}: ${feature.properties[pa]}`
-                        popup_content.appendChild(popup_row)
-                    }
-                })
-                new maplibregl.Popup()
-                    .setLngLat(e.lngLat)
-                    .setHTML(popup_content.innerHTML)
-                    .addTo(map);
+            if (feature === undefined) {
+                return
             }
+            let popup_content
+            console.log(feature)
+            if (feature.layer.id == "Endpoints") {
+                popup_content = `<div>
+                    <b>${feature.properties.Type} ${feature.properties.Name_en}${feature.properties.Alternative_name ? " (" + feature.properties.Alternative_name + ") " : ""} ${feature.properties.Number ? feature.properties.Number : ""}</b>
+                    <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + " kV</p>" : ""}
+                    <p>${feature.properties.Year_start_name} year</p>
+                </div>`
+            } else if (["PL_voltage", "PL_age"].includes(feature.layer.id)) {
+                popup_content = `<div>
+                    <b>${feature.properties.Name}</b>
+                    ${feature.properties.Branch_points ? "<p>Branches to: " + feature.properties.Branch_points + "</p>" : ""}
+                    <p>${feature.properties.Year_start} year</p>
+                    ${feature.properties.Doubt_Year ? "<i>Doubt in year</i>" : ""}
+                    ${feature.properties.Doubt_geometry ? "<i>Doubt in geometry</i>" : ""}
+                </div>`
+            } else if (feature.layer.id == "PL_modifications") {
+                popup_content = `<div>
+                    <b>${feature.properties.Name}</b>
+                    ${feature.properties.Segment_Type ? "<p>" + feature.properties.Segment_Type + "</p>" : ""}
+                </div>`
+            }
+            new maplibregl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML(popup_content)
+                .addTo(map);
         })
 
     })
