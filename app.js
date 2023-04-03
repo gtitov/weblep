@@ -232,16 +232,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 .addTo(map);
         })
 
-
-        // Diagram
-
-        const ctx = document.getElementById('diagram-canvas');
-
-        fetch("/diagram_voltage_ru.json")
-            .then(r => r.json())
-            .then(j => new Chart(ctx, j))
-        // 
-
     })
 })
 
