@@ -44,17 +44,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        // Legend control
+        // Toggles
         const legendToggle = document.getElementById("legend-toggle")
         const legend = document.getElementById("legend")
-        legendToggle.addEventListener("click", () => legend.clientWidth ? legend.style.display = "none" : legend.style.display = "block")
 
-
-
-        // Layers control
         const layersToggle = document.getElementById("layers-toggle")
         const layers = document.getElementById("layers")
-        layersToggle.addEventListener("click", () => layers.clientWidth ? layers.style.display = "none" : layers.style.display = "block")
+
+        const diagramToggle = document.getElementById("diagram-toggle")
+        const diagram = document.getElementById("diagram")
+
+        legendToggle.addEventListener("click", () => legend.clientWidth ? legend.style.display = "none" : (legend.style.display = "block", layers.style.display = "none", diagram.style.display = "none"))
+        layersToggle.addEventListener("click", () => layers.clientWidth ? layers.style.display = "none" : (legend.style.display = "none", layers.style.display = "block", diagram.style.display = "none"))
+        diagramToggle.addEventListener("click", () => diagram.clientWidth ? diagram.style.display = "none" : (legend.style.display = "none", layers.style.display = "none", diagram.style.display = "block"))
+
+
+
+        // Layers
 
         const basemaps_part = document.createElement("div")
         basemaps_part.className = "form-group"
@@ -225,6 +231,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 .setHTML(popup_content)
                 .addTo(map);
         })
+
+
+        // Diagram
+
+        const ctx = document.getElementById('diagram-canvas');
+
+        fetch("/diagram_voltage_ru.json")
+            .then(r => r.json())
+            .then(j => new Chart(ctx, j))
+        // 
 
     })
 })

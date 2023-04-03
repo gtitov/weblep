@@ -11,6 +11,8 @@
   <!-- Maplibre -->
   <script src='./maplibre/maplibre-gl.js'></script>
   <link href='./maplibre/maplibre-gl.css' rel='stylesheet' />
+  <!-- ChartJS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
@@ -48,11 +50,16 @@
   <div id="legend">
     <object data="legend.svg" type="image/svg+xml"></object>
   </div>
-  <!-- Layers control -->
+  <!-- Layers -->
   <button id="layers-toggle" class="btn">
     <i class="icon icon-menu"></i>
   </button>
   <div id="layers"></div>
+  <!-- Diagram -->
+  <button id="diagram-toggle" class="btn">
+    <i class="icon icon-share"></i>
+  </button>
+  <div id="diagram"><canvas id="diagram-canvas"></canvas></div>
 
   <!-- Info -->
   <a id="info" href="#info" class="btn btn-link icon-link" onclick="document.getElementById('info-modal').classList.add('active')" title="Service description">
