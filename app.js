@@ -54,10 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "doubt_geometry": {
             "ru": "Сомнения в геометрии",
             "en": "Doubt in geometry"
-        },
-        "lepjson": {
-            "ru": "../lep.json",
-            "en": "lep.json"
         }
     }
 
@@ -93,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const map = new maplibregl.Map({
         container: 'mapid', // container id
         // DOCS: https://maplibre.org/maplibre-gl-js-docs/style-spec/
-        style: translate.lepjson[lang],
+        style: "lep.json",
         center: [37.625, 55.751], // starting position [lng, lat]
         zoom: 5, // starting zoom,
         minZoom: 4,
