@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const ru = document.documentElement.lang === "ru" ? true : false
+    const lang = document.documentElement.lang
 
 
     const translate = {
@@ -54,42 +54,46 @@ document.addEventListener("DOMContentLoaded", function () {
         "doubt_geometry": {
             "ru": "Сомнения в геометрии",
             "en": "Doubt in geometry"
+        },
+        "lepjson": {
+            "ru": "../lep.json",
+            "en": "lep.json"
         }
     }
 
     const raster_layers = [
         {
             id: "mono-layer",
-            title: ru ? translate.basemap_mono.ru : translate.basemap_mono.en
+            title: translate.basemap_mono[lang]
         },
         {
             id: "satellite-layer",
-            title: ru ? translate.basemap_satellite.ru : translate.basemap_satellite.en
+            title: translate.basemap_satellite[lang]
         }
     ]
     const vector_layers = [
         {
             id: "PL_voltage",
-            title: ru ? translate.PL_voltage.ru : translate.PL_voltage.en
+            title: translate.PL_voltage[lang]
         },
         {
             id: "PL_modifications",
-            title: ru ? translate.PL_modifications.ru : translate.PL_modifications.en
+            title: translate.PL_modifications[lang]
         },
         {
             id: "PL_age",
-            title: ru ? translate.PL_age.ru : translate.PL_age.en
+            title: translate.PL_age[lang]
         },
         {
             id: "Endpoints",
-            title: ru ? translate.Endpoints.ru : translate.Endpoints.en
+            title: translate.Endpoints[lang]
         }
     ]
 
     const map = new maplibregl.Map({
         container: 'mapid', // container id
         // DOCS: https://maplibre.org/maplibre-gl-js-docs/style-spec/
-        style: "/lep.json",
+        style: translate.lepjson[lang],
         center: [37.625, 55.751], // starting position [lng, lat]
         zoom: 5, // starting zoom,
         minZoom: 4,
@@ -125,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const basemaps_title = document.createElement("label")
         basemaps_title.className = "form-label"
-        basemaps_title.textContent = ru ? translate.basemaps.ru : translate.basemaps.en
+        basemaps_title.textContent = translate.basemaps[lang]
 
         basemaps_part.appendChild(basemaps_title)
 
@@ -175,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const layers_title = document.createElement("label")
         layers_title.className = "form-label"
-        layers_title.textContent = ru ? translate.layers.ru : translate.layers.en
+        layers_title.textContent = translate.layers[lang]
 
         layers_part.appendChild(layers_title)
 
@@ -267,16 +271,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (feature.layer.id == "Endpoints") {
                 popup_content = `<div>
                     <b>${feature.properties.Type} ${feature.properties.Name_en}${feature.properties.Alternative_name ? " (" + feature.properties.Alternative_name + ") " : ""} ${feature.properties.Number ? feature.properties.Number : ""}</b>
-                    <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + ` ${ru ? translate.kV.ru : translate.kV.en}</p>` : ""}
-                    <p>${feature.properties.Year_start_name} ${ru ? translate.year.ru : translate.year.en}</p>
+                    <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + ` ${translate.kV[lang]}</p>` : ""}
+                    <p>${feature.properties.Year_start_name} ${translate.year[lang]}</p>
                 </div>`
             } else if (["PL_voltage", "PL_age"].includes(feature.layer.id)) {
                 popup_content = `<div>
                     <b>${feature.properties.Name}</b>
-                    ${feature.properties.Branch_points ? `<p>${ru ? translate.branches_to.ru : translate.branches_to.en} ` + feature.properties.Branch_points + "</p>" : ""}
-                    <p>${feature.properties.Year_start} ${ru ? translate.year.ru : translate.year.en}</p>
-                    ${feature.properties.Doubt_Year ? `<i>${ru ? translate.doubt_year.ru : translate.doubt_year.en}</i>` : ""}
-                    ${feature.properties.Doubt_geometry ? `<i>${ru ? translate.doubt_geometry.ru : translate.doubt_geometry.en}</i>` : ""}
+                    ${feature.properties.Branch_points ? `<p>${translate.branches_to[lang]} ` + feature.properties.Branch_points + "</p>" : ""}
+                    <p>${feature.properties.Year_start} ${translate.year[lang]}</p>
+                    ${feature.properties.Doubt_Year ? `<i>${translate.doubt_year[lang]}</i>` : ""}
+                    ${feature.properties.Doubt_geometry ? `<i>${translate.doubt_geometry[lang]}</i>` : ""}
                 </div>`
             } else if (feature.layer.id == "PL_modifications") {
                 popup_content = `<div>
@@ -290,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .addTo(map);
         })
 
-        
+
         // Diagram
 
         const ctx = document.getElementById('diagram-canvas');
