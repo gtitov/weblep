@@ -1,37 +1,95 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const ru = document.documentElement.lang === "ru" ? true : false
+
+
+    const translate = {
+        "basemap_mono": {
+            "ru": "Монохром",
+            "en": "Mono"
+        },
+        "basemap_satellite": {
+            "ru": "Спутник",
+            "en": "Satellite"
+        },
+        "PL_voltage": {
+            "ru": "Напряжение ЛЭП",
+            "en": "Voltage of power lines"
+        },
+        "PL_modifications": {
+            "ru": "Изменения ЛЭП",
+            "en": "Modifications of power lines"
+        },
+        "PL_age": {
+            "ru": "Возраст ЛЭП",
+            "en": "Age of power lines"
+        },
+        "Endpoints": {
+            "ru": "Станции и подстанции",
+            "en": "Plants & substations"
+        },
+        "basemaps": {
+            "ru": "Подложки",
+            "en": "Basemaps"
+        },
+        "layers": {
+            "ru": "Слои",
+            "en": "Layers"
+        },
+        "kV": {
+            "ru": "кВ",
+            "en": "kV"
+        },
+        "year": {
+            "ru": "год",
+            "en": "year"
+        },
+        "branches_to": {
+            "ru": "Отпайки на пункты:",
+            "en": "Branches to:"
+        },
+        "doubt_year": {
+            "ru": "Сомнения в годе",
+            "en": "doubt_year"
+        },
+        "doubt_geometry": {
+            "ru": "Сомнения в геометрии",
+            "en": "Doubt in geometry"
+        }
+    }
+
     const raster_layers = [
         {
             id: "mono-layer",
-            title: "Mono"
+            title: ru ? translate.basemap_mono.ru : translate.basemap_mono.en
         },
         {
             id: "satellite-layer",
-            title: "Satellite"
+            title: ru ? translate.basemap_satellite.ru : translate.basemap_satellite.en
         }
     ]
     const vector_layers = [
         {
             id: "PL_voltage",
-            title: "Voltage of power lines"
+            title: ru ? translate.PL_voltage.ru : translate.PL_voltage.en
         },
         {
             id: "PL_modifications",
-            title: "Modifications of power lines"
+            title: ru ? translate.PL_modifications.ru : translate.PL_modifications.en
         },
         {
             id: "PL_age",
-            title: "Age of power lines"
+            title: ru ? translate.PL_age.ru : translate.PL_age.en
         },
         {
             id: "Endpoints",
-            title: "Plants & substations"
+            title: ru ? translate.Endpoints.ru : translate.Endpoints.en
         }
     ]
 
     const map = new maplibregl.Map({
         container: 'mapid', // container id
         // DOCS: https://maplibre.org/maplibre-gl-js-docs/style-spec/
-        style: "lep.json",
+        style: "/lep.json",
         center: [37.625, 55.751], // starting position [lng, lat]
         zoom: 5, // starting zoom,
         minZoom: 4,
@@ -67,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const basemaps_title = document.createElement("label")
         basemaps_title.className = "form-label"
-        basemaps_title.textContent = "Basemaps"
+        basemaps_title.textContent = ru ? translate.basemaps.ru : translate.basemaps.en
 
         basemaps_part.appendChild(basemaps_title)
 
@@ -117,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const layers_title = document.createElement("label")
         layers_title.className = "form-label"
-        layers_title.textContent = "Layers"
+        layers_title.textContent = ru ? translate.layers.ru : translate.layers.en
 
         layers_part.appendChild(layers_title)
 
@@ -209,16 +267,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (feature.layer.id == "Endpoints") {
                 popup_content = `<div>
                     <b>${feature.properties.Type} ${feature.properties.Name_en}${feature.properties.Alternative_name ? " (" + feature.properties.Alternative_name + ") " : ""} ${feature.properties.Number ? feature.properties.Number : ""}</b>
-                    <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + " kV</p>" : ""}
-                    <p>${feature.properties.Year_start_name} year</p>
+                    <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + ` ${ru ? translate.kV.ru : translate.kV.en}</p>` : ""}
+                    <p>${feature.properties.Year_start_name} ${ru ? translate.year.ru : translate.year.en}</p>
                 </div>`
             } else if (["PL_voltage", "PL_age"].includes(feature.layer.id)) {
                 popup_content = `<div>
                     <b>${feature.properties.Name}</b>
-                    ${feature.properties.Branch_points ? "<p>Branches to: " + feature.properties.Branch_points + "</p>" : ""}
-                    <p>${feature.properties.Year_start} year</p>
-                    ${feature.properties.Doubt_Year ? "<i>Doubt in year</i>" : ""}
-                    ${feature.properties.Doubt_geometry ? "<i>Doubt in geometry</i>" : ""}
+                    ${feature.properties.Branch_points ? `<p>${ru ? translate.branches_to.ru : translate.branches_to.en} ` + feature.properties.Branch_points + "</p>" : ""}
+                    <p>${feature.properties.Year_start} ${ru ? translate.year.ru : translate.year.en}</p>
+                    ${feature.properties.Doubt_Year ? `<i>${ru ? translate.doubt_year.ru : translate.doubt_year.en}</i>` : ""}
+                    ${feature.properties.Doubt_geometry ? `<i>${ru ? translate.doubt_geometry.ru : translate.doubt_geometry.en}</i>` : ""}
                 </div>`
             } else if (feature.layer.id == "PL_modifications") {
                 popup_content = `<div>
@@ -231,6 +289,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 .setHTML(popup_content)
                 .addTo(map);
         })
+
+        
+        // Diagram
+
+        const ctx = document.getElementById('diagram-canvas');
+
+        fetch("/diagram_voltage_ru.json")
+            .then(r => r.json())
+            .then(j => new Chart(ctx, j))
 
     })
 })
