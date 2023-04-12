@@ -59,7 +59,21 @@
   <button id="diagram-toggle" class="btn">
     <i class="icon icon-share"></i>
   </button>
-  <div id="diagram"><canvas id="diagram-canvas"></canvas></div>
+  <div id="diagram">
+    <div>
+      <select id="select-variable" class="form-select select-sm">
+        <option disabled>Показатель</option>
+        <option>Протяжённость сети по напряжениям (тыс. км)</option>
+      </select>
+
+      <select id="select-region" class="form-select select-sm">
+        <option disabled>Энергосистема</option>
+      </select>
+    </div>
+    <div>
+      <canvas id="diagram-canvas"></canvas>
+    </div>
+  </div>
 
   <!-- Modal -->
   <a id="info" href="#info" class="btn btn-link icon-link"

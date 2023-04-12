@@ -293,12 +293,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Diagram
 
-        const ctx = document.getElementById('diagram-canvas');
+        const ctx = document.getElementById('diagram-canvas')
+        const regions_selector = document.getElementById('select-region')
+        
 
-        fetch("/diagram_voltage_ru.json")
+        fetch("/diagram_voltage_regions_ru.json")
             .then(r => r.json())
-            .then(j => new Chart(ctx, j))
-
+            .then(j => {
+                j.map(e => regions_selector.innerHTML += `<option value="${e.region}">${e.region}</option>`)
+                let chart = new Chart(ctx, j.find(e => e.region == "РФ"))
+                regions_selector.onchange = function() {
+                    const clickedRegion = this.value
+                    console.log(clickedRegion)
+                    chart.destroy()
+                    chart = new Chart(ctx, j.find(e => e.region == clickedRegion))
+                }
+            })
     })
 })
 
