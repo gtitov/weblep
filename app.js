@@ -265,24 +265,43 @@ document.addEventListener("DOMContentLoaded", function () {
             let popup_content
             console.log(feature)
             if (feature.layer.id == "Endpoints") {
-                popup_content = `<div>
-                    <b>${feature.properties.Type} ${feature.properties.Name_en}${feature.properties.Alternative_name ? " (" + feature.properties.Alternative_name + ") " : ""} ${feature.properties.Number ? feature.properties.Number : ""}</b>
-                    <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + ` ${translate.kV[lang]}</p>` : ""}
-                    <p>${feature.properties.Year_start_name} ${translate.year[lang]}</p>
-                </div>`
+                popup_content = lang == "ru" ?
+                    `<div>
+                        <b>${feature.properties.Type} ${feature.properties.Name}${feature.properties.Alternative_name ? " (" + feature.properties.Alternative_name + ") " : ""} ${feature.properties.Number ? feature.properties.Number : ""}</b>
+                        <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + ` ${translate.kV[lang]}</p>` : ""}
+                        <p>${feature.properties.Year_start_name} ${translate.year[lang]}</p>
+                    </div>` :
+                    `<div>
+                        <b>${feature.properties.Type} ${feature.properties.Name_en}${feature.properties.Alternative_name ? " (" + feature.properties.Alternative_name + ") " : ""} ${feature.properties.Number ? feature.properties.Number : ""}</b>
+                        <p>${feature.properties.Voltage ? "<p>" + feature.properties.Voltage + ` ${translate.kV[lang]}</p>` : ""}
+                        <p>${feature.properties.Year_start_name} ${translate.year[lang]}</p>
+                    </div>`
             } else if (["PL_voltage", "PL_age"].includes(feature.layer.id)) {
-                popup_content = `<div>
-                    <b>${feature.properties.Name}</b>
-                    ${feature.properties.Branch_points ? `<p>${translate.branches_to[lang]} ` + feature.properties.Branch_points + "</p>" : ""}
-                    <p>${feature.properties.Year_start} ${translate.year[lang]}</p>
-                    ${feature.properties.Doubt_Year ? `<i>${translate.doubt_year[lang]}</i>` : ""}
-                    ${feature.properties.Doubt_geometry ? `<i>${translate.doubt_geometry[lang]}</i>` : ""}
-                </div>`
+                popup_content = lang == "ru" ?
+                    `<div>
+                        <b>${feature.properties.Name}</b>
+                        ${feature.properties.Branch_points ? `<p>${translate.branches_to[lang]} ` + feature.properties.Branch_points + "</p>" : ""}
+                        <p>${feature.properties.Year_start} ${translate.year[lang]}</p>
+                        ${feature.properties.Doubt_Year ? `<i>${translate.doubt_year[lang]}</i>` : ""}
+                        ${feature.properties.Doubt_geometry ? `<i>${translate.doubt_geometry[lang]}</i>` : ""}
+                    </div>` :
+                    `<div>
+                        <b>${feature.properties.Name}</b>
+                        ${feature.properties.Branch_points ? `<p>${translate.branches_to[lang]} ` + feature.properties.Branch_points + "</p>" : ""}
+                        <p>${feature.properties.Year_start} ${translate.year[lang]}</p>
+                        ${feature.properties.Doubt_Year ? `<i>${translate.doubt_year[lang]}</i>` : ""}
+                        ${feature.properties.Doubt_geometry ? `<i>${translate.doubt_geometry[lang]}</i>` : ""}
+                    </div>`
             } else if (feature.layer.id == "PL_modifications") {
-                popup_content = `<div>
-                    <b>${feature.properties.Name}</b>
-                    ${feature.properties.Segment_Type ? "<p>" + feature.properties.Segment_Type + "</p>" : ""}
-                </div>`
+                popup_content = lang == "ru" ? 
+                    `<div>
+                        <b>${feature.properties.Name}</b>
+                        ${feature.properties.Segment_Type ? "<p>" + feature.properties.Segment_Type + "</p>" : ""}
+                    </div>` :
+                    `<div>
+                        <b>${feature.properties.Name}</b>
+                        ${feature.properties.Segment_Type ? "<p>" + feature.properties.Segment_Type + "</p>" : ""}
+                    </div>`
             }
             new maplibregl.Popup()
                 .setLngLat(e.lngLat)
