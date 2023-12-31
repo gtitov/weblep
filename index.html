@@ -40,6 +40,8 @@
 
   <!-- Year control -->
   <div id="yearcontrol">
+    <button id="playyears" class="btn">Start</button>
+    <button id="pauseyears" class="btn">Pause</button>
     <h1 id="yeartext"><span id="yearlabel"></span> year</h1>
     <input id="yearrange" type="range" name="year" min="1930" max="2020" value="2020" step="1">
   </div>
@@ -55,7 +57,19 @@
   <button id="layers-toggle" class="btn">
     <i class="icon icon-menu"></i>
   </button>
-  <div id="layers"></div>
+  <div id="layers-panel">
+    <div id="layers" class="form-group">
+      <label class="form-label">Layers</label>
+      <label class="form-checkbox"><input id="lines_voltage" type="checkbox" name="layers" value="lines_voltage" checked><i class="form-icon"></i>Voltage of power lines</label>
+      <label class="form-checkbox"><input id="lines_age" type="checkbox" name="layers" value="lines_age"><i class="form-icon"></i>Age of power lines</label>
+      <label class="form-checkbox"><input id="generation" type="checkbox" name="layers" value="generation" checked><i class="form-icon"></i>Power plants</label>
+      <label class="form-checkbox"><input id="substations" type="checkbox" name="layers" value="substations" checked><i class="form-icon"></i>Substations</label>
+    </div>
+    <div id="basemaps" class="btn-group btn-group-block">
+      <button id="basemap-grey" class="btn btn-sm active">grey</button>
+      <button id="basemap-satellite" class="btn btn-sm">satellite</button>
+    </div> 
+  </div>
   <!-- Diagram -->
   <button id="diagram-toggle" class="btn" style="display: none;">
     <i class="icon icon-share"></i>
@@ -86,13 +100,6 @@
       </div>
     </div>
   </div>
-
-  <!-- WMS -->
-  <a id="wms" href="https://powerlines.one/wms?SERVICE=WMS&REQUEST=GetCapabilities" target="_blank" class="btn btn-link icon-link" title="WMS Capabilities">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-broadcast" viewBox="0 0 16 16">
-      <path d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
-    </svg>
-  </a>
 
   <!-- Cite -->
   <a id="cite" href="#citation" class="btn btn-link icon-link" onclick="document.getElementById('citation-modal').classList.add('active')" title="Cite">

@@ -1,5 +1,6 @@
 {
   "version": 8,
+  "id": "lep",
   "name": "lep",
   "metadata": {},
   "center": [36.35563, 55.21056],
@@ -7,7 +8,7 @@
   "sources": {
     "lep": {
       "type": "vector",
-      "url": "https://tiles.powerlines.one/capabilities/lep.json"
+      "url": "http://localhost:8080/capabilities/lep.json"
     },
     "satellite": {
       "type": "raster",
@@ -21,7 +22,7 @@
     }
   },
   "sprite": "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "satellite-layer",
@@ -38,36 +39,15 @@
       "paint": {}
     },
     {
-      "id": "PL_voltage",
+      "id": "lines_age",
       "type": "line",
       "source": "lep",
-      "source-layer": "PL_voltage",
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": [
-          "match",
-          ["get", "Voltage"],
-          220, "#C7C700",
-          330, "#008C00",
-          400, "#EF951E",
-          500, "#C70000",
-          750, "#0000C7",
-          800, "#0000C7",
-          "#999999"
-        ],
-        "line-width": 2
-      }
-    },
-    {
-      "id": "PL_age",
-      "type": "line",
-      "source": "lep",
-      "source-layer": "PL_voltage",
+      "source-layer": "pl",
       "layout": {"visibility": "none"},
       "paint": {
         "line-color": [
           "step",
-          ["get", "age"],
+          ["-", 2020, ["get", "Year_start"]],
           "#FDE725",
           2, "#C2E023",
           5, "#85D44A",
@@ -85,44 +65,34 @@
       }
     },
     {
-      "id": "PL_modifications",
+      "id": "lines_voltage",
       "type": "line",
       "source": "lep",
-      "source-layer": "PL_modifications",
-      "layout": {"visibility": "none"},
+      "source-layer": "pl",
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": [
           "match",
-          ["get", "Segment_Type"],
-          "Branch construction",
-          "#24E5D8",
-          "Branch dismantling",
-          "#E27D64",
-          "Cut construction",
-          "#10E829",
-          "Cut dismantling",
-          "#E640DE",
-          "Line dismantling",
-          "#E63436",
-          "New line construction",
-          "#1D8C3B",
-          "Re-routing construction",
-          "#52CED2",
-          "Re-routing dismantling",
-          "#A8BA63",
-          "Voltage modification",
-          "#8856A7",
-          "#000000"
-        ]
+          ["get", "Voltage"],
+          220, "#C7C700",
+          330, "#008C00",
+          400, "#EF951E",
+          500, "#C70000",
+          750, "#0000C7",
+          800, "#0000C7",
+          "#999999"
+        ],
+        "line-width": 2
       }
     },
     {
-      "id": "Endpoints",
+      "id": "substations",
       "type": "circle",
       "source": "lep",
-      "source-layer": "endpoints",
+      "source-layer": "substations",
       "layout": {"visibility": "visible"},
       "paint": {
+        "circle-radius": 3,
         "circle-color": [
           "match",
           ["get", "Voltage"],
@@ -135,15 +105,16 @@
           800, "#0000C7",
           "#FFFFFF"
         ],
-        "circle-stroke-color": [
-          "match",
-          ["get", "Type"],
-          "ЭС", "#000000",
-          "#AAAAAA"
-        ],
+        "circle-stroke-color": "#AAA",
         "circle-stroke-width": 1
       }
+    },
+    {
+      "id": "generation",
+      "type": "symbol",
+      "source": "lep",
+      "source-layer": "generation",
+      "layout": {"icon-size": 0.5, "icon-allow-overlap": true, "visibility": "visible"}
     }
-  ],
-  "id": "lep"
+  ]
 }
