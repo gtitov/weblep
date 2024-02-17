@@ -8,7 +8,7 @@
   "sources": {
     "lep": {
       "type": "vector",
-      "url": "http://localhost:8080/capabilities/lep.json"
+      "url": "https://tiles.powerlines.one/capabilities/lep.json"
     },
     "satellite": {
       "type": "raster",
