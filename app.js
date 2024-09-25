@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       let popup_content;
       console.log(feature);
-      if (feature.layer.id == "Endpoints") {
+      if (["generation", "substations"].includes(feature.layer.id)) {
         popup_content =
           lang == "ru"
             ? `<div>
@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
                               ` ${translate.kV[lang]}</p>`
                             : ""
                         }
-                        <p>${feature.properties.Year_start_name} ${
+                        <p>${feature.properties.Year_start} ${
                 translate.year[lang]
               }</p>
                     </div>`
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 translate.year[lang]
               }</p>
                     </div>`;
-      } else if (["PL_voltage", "PL_age"].includes(feature.layer.id)) {
+      } else if (["lines_voltage", "lines_age"].includes(feature.layer.id)) {
         popup_content =
           lang == "ru"
             ? `<div>
