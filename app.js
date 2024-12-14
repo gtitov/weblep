@@ -1,380 +1,477 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const lang = document.documentElement.lang;
+maplibregl.addProtocol("pmtiles", new pmtiles.Protocol().tile)
 
-  const translate = {
-    PL_voltage: {
-      ru: "Напряжение ЛЭП",
-      en: "Voltage of power lines",
-    },
-    PL_modifications: {
-      ru: "Изменения ЛЭП",
-      en: "Modifications of power lines",
-    },
-    PL_age: {
-      ru: "Возраст ЛЭП",
-      en: "Age of power lines",
-    },
-    kV: {
-      ru: "кВ",
-      en: "kV",
-    },
-    year: {
-      ru: "год",
-      en: "year",
-    },
-    branches_to: {
-      ru: "Отпайки на пункты:",
-      en: "Branches to:",
-    },
-    doubt_year: {
-      ru: "Сомнения в годе",
-      en: "doubt_year",
-    },
-    doubt_geometry: {
-      ru: "Сомнения в геометрии",
-      en: "Doubt in geometry",
-    },
-  };
-
-  const vectorLayers = [
-    "lines_voltage",
-    "lines_age",
-    "substations",
-    "generation",
-  ];
-
-  const map = new maplibregl.Map({
-    container: "mapid", // container id
-    // DOCS: https://maplibre.org/maplibre-gl-js-docs/style-spec/
-    style: "lep.json",
-    center: [87.625, 55.751], // starting position [lng, lat]
-    zoom: 2.8, // starting zoom,
+const map = new maplibregl.Map({
+    style: 'https://raw.githubusercontent.com/gtitov/basemaps/refs/heads/master/positron-nolabels.json',
+    center: [90, 50],
+    zoom: 2.5,
     maxZoom: 11,
-  });
+    container: 'map',
+    hash: true
+})
 
-  map.on("load", function () {
-    const squareImage = new Image();
-    squareImage.src = "./white-square.png";
-    squareImage.onload = () => map.addImage("white-square", squareImage);
-    map.setLayoutProperty("generation", "icon-image", "white-square");
+// Смещение за открытый sidebar
+map.setPadding({ left: 400 })
 
-    // Initial year select
-    document.getElementById("yearlabel").innerText =
-      document.getElementById("yearrange").value;
+// disable map rotation using right click + drag
+map.dragRotate.disable();
 
-    // Toggles
-    const legendToggle = document.getElementById("legend-toggle");
-    const legend = document.getElementById("legend");
+// disable map rotation using touch rotation gesture
+map.touchZoomRotate.disableRotation();
 
-    const layersToggle = document.getElementById("layers-toggle");
-    const layers = document.getElementById("layers-panel");
+map.addControl(new maplibregl.NavigationControl());
+map.addControl(new maplibregl.ScaleControl(), 'bottom-right')
 
-    const diagramToggle = document.getElementById("diagram-toggle");
-    const diagram = document.getElementById("diagram");
+// Легенда
+const voltageColors = {
+    220: "#C7C700",
+    330: "#008C00",
+    400: "#EF951E",
+    500: "#C70000",
+    750: "#0000C7",
+    800: "#0000C7"
+}
 
-    legendToggle.addEventListener("click", () =>
-      legend.clientWidth
-        ? (legend.style.display = "none")
-        : ((legend.style.display = "block"),
-          (layers.style.display = "none"),
-          (diagram.style.display = "none"))
-    );
-    layersToggle.addEventListener("click", () =>
-      layers.clientWidth
-        ? (layers.style.display = "none")
-        : ((legend.style.display = "none"),
-          (layers.style.display = "block"),
-          (diagram.style.display = "none"))
-    );
-    diagramToggle.addEventListener("click", () =>
-      diagram.clientWidth
-        ? (diagram.style.display = "none")
-        : ((legend.style.display = "none"),
-          (layers.style.display = "none"),
-          (diagram.style.display = "block"))
-    );
+const ageColors = {
+    0: "#FDE725",
+    2: "#C2E023",
+    5: "#85D44A",
+    10: "#5EC874",
+    15: "#2BB07E",
+    20: "#85D44A",
+    30: "#25858E",
+    40: "#2D6F8E",
+    50: "#38588C",
+    60: "#423E85",
+    70: "#482173",
+    80: "#541763",
+}
 
-    // Basemaps
+const modificationColors = {
+    "Branch construction": "#24e5d8",
+    "Branch dismantling": "#e27d64",
+    "Cut construction": "#10e829",
+    "Cut dismantling": "#e327da",
+    "Line dismantling": "#e31a1c",
+    "New line construction": "#1d8c3b",
+    "Re-routing construction": "#52ced2",
+    "Re-routing dismantling": "#f0d730",
+    "No modifications": "#aaa"
+}
 
-    const greyBasemap = document.getElementById("basemap-grey");
-    const satelliteBasemap = document.getElementById("basemap-satellite");
+const modificationTranslations = {
+    "Branch construction": "Строительство отпайки",
+    "Branch dismantling": "Демонтаж отпайки",
+    "Cut construction": "Строительство заходов разрезки",
+    "Cut dismantling": "Демонтаж линии при разрезке",
+    "Line dismantling": "Демонтаж линии",
+    "New line construction": "Строительство новой линии",
+    "Re-routing construction": "Переустройство линии",
+    "Re-routing dismantling": "Демонтаж при переустройстве",
+    "No modifications": "Неизменные сегменты"
+}
 
-    greyBasemap.addEventListener("click", () => {
-      greyBasemap.classList.add("active");
-      satelliteBasemap.classList.remove("active");
-      map.setLayoutProperty("mono-layer", "visibility", "visible");
-      map.setLayoutProperty("satellite-layer", "visibility", "none");
-    });
+const voltageLegendElements = Object.entries(voltageColors).map(([voltage, color]) => {
+    return `<div style="display: flex; gap: 10px; align-items: center; padding: 10px;">
+            <div style="background-color: ${color}; height: 5px; width: 25px;"></div>
+            <span>${voltage}</span>
+        </div>`
+})
+const voltageLegend = `<div id="legend-voltage"><h4>Напряжение, кВ</h4>${voltageLegendElements.join("")}</div>`
 
-    satelliteBasemap.addEventListener("click", () => {
-      satelliteBasemap.classList.add("active");
-      greyBasemap.classList.remove("active");
-      map.setLayoutProperty("satellite-layer", "visibility", "visible");
-      map.setLayoutProperty("mono-layer", "visibility", "none");
-    });
+const ageColorsArray = Object.entries(ageColors)
+const ageLegendElements = ageColorsArray.map(([age, color], index) => {
+    if (age == "0") {
+        return `<div style="display: flex; gap: 10px; align-items: center; padding: 10px;">
+            <div style="background-color: ${color}; height: 5px; width: 25px;"></div>
+            <span>менее 2</span>
+            </div>`
+    }
+    if (age == "80") {
+        return `<div style="display: flex; gap: 10px; align-items: center; padding: 10px;">
+            <div style="background-color: ${color}; height: 5px; width: 25px;"></div>
+            <span>более 80</span>
+            </div>`
+    }
+    return `<div style="display: flex; gap: 10px; align-items: center; padding: 10px;">
+            <div style="background-color: ${color}; height: 5px; width: 25px;"></div>
+            <span>${ageColorsArray[index][0]} - ${ageColorsArray[index + 1][0]}</span>
+        </div>`
 
-    // Layers
+})
+const ageLegend = `<div id="legend-age" style="display: none"><h4>Возраст, лет</h4>${ageLegendElements.join("")}</div>`
 
-    vectorLayers.map((l) =>
-      document.getElementById(l).addEventListener("click", (event) => {
-        map.setLayoutProperty(
-          l,
-          "visibility",
-          event.target.checked ? "visible" : "none"
-        );
-      })
-    );
+const modificationsLegendElements = Object.entries(modificationColors).map(([modification, color]) => {
+    return `<div style="display: flex; gap: 10px; align-items: center; padding: 10px;">
+            <div style="background-color: ${color}; height: 5px; width: 25px;"></div>
+            <span>${modificationTranslations[modification]}</span>
+        </div>`
+})
+const modificationsLegend = `<div id="legend-modifications" style="display: none"><h4>Модификации</h4>${modificationsLegendElements.join("")}</div>`
 
-    // Zoom control
-    document
-      .getElementById("zoom-in")
-      .addEventListener("click", () => map.zoomIn());
-    document
-      .getElementById("zoom-out")
-      .addEventListener("click", () => map.zoomOut());
+document.getElementById("legend").innerHTML = voltageLegend + ageLegend + modificationsLegend
 
-    // Range control
-    const updateYearFilter = (year) => {
-      ["lines_voltage", "lines_age"].map((l) =>
-        map.setFilter(l, [
-          "all",
-          [">=", year, ["get", "Year_start_name"]],
-          ["<=", year, ["coalesce", ["get", "Year_end_name"], 3000]],
-        ])
-      );
-      ["generation", "substations"].map((l) =>
-        map.setFilter(l, [
-          "all",
-          [">=", year, ["get", "Year_start"]],
-          ["<", year, ["coalesce", ["get", "Year_end"], 3000]],
-        ])
-      );
-      map.setPaintProperty("lines_age", "line-color", [
-        "step",
-        ["-", year, ["get", "Year_start"]],
-        "#FDE725",
-        2,
-        "#C2E023",
-        5,
-        "#85D44A",
-        10,
-        "#5EC874",
-        15,
-        "#2BB07E",
-        20,
-        "#85D44A",
-        30,
-        "#25858E",
-        40,
-        "#2D6F8E",
-        50,
-        "#38588C",
-        60,
-        "#423E85",
-        70,
-        "#482173",
-        80,
-        "#541763",
-      ]);
-    };
+map.on("load", () => {
 
-    const yearrange = document.getElementById("yearrange");
-
-    updateYearFilter(parseInt(yearrange.value));
-
-    yearrange.addEventListener("change", () => {
-      const yearValue = parseInt(yearrange.value);
-      document.getElementById("yearlabel").innerText = yearValue;
-      updateYearFilter(yearValue);
-    });
-
-    const changeEvent = new Event("change");
-    const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-    let pause
-    const play = async () => {
-      pause = false
-      document.getElementById("playyears").style.display = "none"
-      document.getElementById("pauseyears").style.display = "block"
-      yearrange.disabled = true
-      for (let i = yearrange.value; i < 2021; i++) {
-        if (pause) {
-          break
+    /* ---
+    Года 
+    --- */
+    const yearsRange = document.getElementById("years-range")
+    const yearsRangeMin = parseInt(yearsRange.getAttribute("min"))
+    const yearsRangeMax = parseInt(yearsRange.getAttribute("max"))
+    let yearValue = parseInt(yearsRange.value)
+    yearsRange.addEventListener("input", (e) => {
+        yearValue = parseInt(e.target.value)
+        document.getElementById("year-label-sidebar").innerText = yearValue
+        document.getElementById("year-label-nosidebar").innerText = yearValue
+        if (playInProgress) return
+        if (yearValue == yearsRangeMin) {
+            document.getElementById("year-minus").disabled = true
+            document.getElementById("year-plus").disabled = false
+            document.getElementById("year-play").disabled = false
+        } else if (yearValue == yearsRangeMax) {
+            document.getElementById("year-minus").disabled = false
+            document.getElementById("year-plus").disabled = true
+            document.getElementById("year-play").disabled = true
+        } else {
+            document.getElementById("year-minus").disabled = false
+            document.getElementById("year-plus").disabled = false
+            document.getElementById("year-play").disabled = false
         }
-        yearrange.value = i;
-        yearrange.dispatchEvent(changeEvent);
-        await timer(500); // then the created Promise can be awaited
-      }
-      yearrange.disabled = false
-      document.getElementById("playyears").style.display = "block"
-      document.getElementById("pauseyears").style.display = "none"
-    };
-    document.getElementById("playyears").addEventListener("click", play);
+    })
 
-    document.getElementById("pauseyears").addEventListener("click", () => pause = true);
+    document.getElementById("year-minus").addEventListener("click", () => {
+        yearsRange.value = parseInt(yearsRange.value) - 1
+        yearsRange.dispatchEvent(new Event('input'))
+        yearsRange.dispatchEvent(new Event('change'))
+    })
+    document.getElementById("year-plus").addEventListener("click", () => {
+        yearsRange.value = parseInt(yearsRange.value) + 1
+        yearsRange.dispatchEvent(new Event('input'))
+        yearsRange.dispatchEvent(new Event('change'))
+    })
+    let playInProgress = false
+    document.getElementById("year-play").addEventListener("click", async () => {
+        playInProgress = true
+        yearsRange.disabled = true
+        document.getElementById("year-minus").disabled = true
+        document.getElementById("year-plus").disabled = true
+        document.getElementById("year-play").disabled = true
+        document.getElementById("year-stop").disabled = false
+        for (let i = yearValue; i <= yearsRangeMax; i++) {
+            if (playInProgress != true) {
+                break
+            }
+            yearsRange.value = i
+            yearsRange.dispatchEvent(new Event('input'))
+            yearsRange.dispatchEvent(new Event('change'))
+            await new Promise(resolve => setTimeout(resolve, 500))
+        }
+        playInProgress = false
+        yearsRange.disabled = false
+        document.getElementById("year-minus").disabled = false
+        document.getElementById("year-plus").disabled = false
+        document.getElementById("year-play").disabled = false
+        document.getElementById("year-stop").disabled = true
+    })
+    document.getElementById("year-stop").addEventListener("click", () => {
+        playInProgress = false
+    })
 
-    // Hover
-    vectorLayers.map((l) => {
-      map.on("mouseenter", l, function () {
-        map.getCanvas().style.cursor = "pointer";
-      });
-      map.on("mouseleave", l, function () {
-        map.getCanvas().style.cursor = "";
-      });
-    });
+    yearsRange.addEventListener("change", () => {
+        map.setFilter("pl-layer-interactions", [
+            "all",
+            ["<=", ["get", "Year_start_name"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+        ])
 
-    // Click
-    map.on("click", function (e) {
-      const feature = map.queryRenderedFeatures(e.point)[0];
-      if (feature === undefined) {
-        return;
-      }
-      let popup_content;
-      console.log(feature);
-      if (["generation", "substations"].includes(feature.layer.id)) {
-        popup_content =
-          lang == "ru"
-            ? `<div>
-                        <b>${feature.properties.Type} ${
-                feature.properties.Name
-              }${
-                feature.properties.Alternative_name
-                  ? " (" + feature.properties.Alternative_name + ") "
-                  : ""
-              } ${
-                feature.properties.Number ? feature.properties.Number : ""
-              }</b>
-                        <p>${
-                          feature.properties.Voltage
-                            ? "<p>" +
-                              feature.properties.Voltage +
-                              ` ${translate.kV[lang]}</p>`
-                            : ""
-                        }
-                        <p>${feature.properties.Year_start} ${
-                translate.year[lang]
-              }</p>
-                    </div>`
-            : `<div>
-                        <b>${feature.properties.Type} ${
-                feature.properties.Name_en
-              }${
-                feature.properties.Alternative_name
-                  ? " (" + feature.properties.Alternative_name + ") "
-                  : ""
-              } ${
-                feature.properties.Number ? feature.properties.Number : ""
-              }</b>
-                        <p>${
-                          feature.properties.Voltage
-                            ? "<p>" +
-                              feature.properties.Voltage +
-                              ` ${translate.kV[lang]}</p>`
-                            : ""
-                        }
-                        <p>${feature.properties.Year_start_name} ${
-                translate.year[lang]
-              }</p>
-                    </div>`;
-      } else if (["lines_voltage", "lines_age"].includes(feature.layer.id)) {
-        popup_content =
-          lang == "ru"
-            ? `<div>
-                        <b>${feature.properties.Name}</b>
-                        ${
-                          feature.properties.Branch_points
-                            ? `<p>${translate.branches_to[lang]} ` +
-                              feature.properties.Branch_points +
-                              "</p>"
-                            : ""
-                        }
-                        <p>${feature.properties.Year_start} ${
-                translate.year[lang]
-              }</p>
-                        ${
-                          feature.properties.Doubt_Year
-                            ? `<i>${translate.doubt_year[lang]}</i>`
-                            : ""
-                        }
-                        ${
-                          feature.properties.Doubt_geometry
-                            ? `<i>${translate.doubt_geometry[lang]}</i>`
-                            : ""
-                        }
-                    </div>`
-            : `<div>
-                        <b>${feature.properties.Name}</b>
-                        ${
-                          feature.properties.Branch_points
-                            ? `<p>${translate.branches_to[lang]} ` +
-                              feature.properties.Branch_points +
-                              "</p>"
-                            : ""
-                        }
-                        <p>${feature.properties.Year_start} ${
-                translate.year[lang]
-              }</p>
-                        ${
-                          feature.properties.Doubt_Year
-                            ? `<i>${translate.doubt_year[lang]}</i>`
-                            : ""
-                        }
-                        ${
-                          feature.properties.Doubt_geometry
-                            ? `<i>${translate.doubt_geometry[lang]}</i>`
-                            : ""
-                        }
-                    </div>`;
-      } else if (feature.layer.id == "PL_modifications") {
-        popup_content =
-          lang == "ru"
-            ? `<div>
-                        <b>${feature.properties.Name}</b>
-                        ${
-                          feature.properties.Segment_Type
-                            ? "<p>" + feature.properties.Segment_Type + "</p>"
-                            : ""
-                        }
-                    </div>`
-            : `<div>
-                        <b>${feature.properties.Name}</b>
-                        ${
-                          feature.properties.Segment_Type
-                            ? "<p>" + feature.properties.Segment_Type + "</p>"
-                            : ""
-                        }
-                    </div>`;
-      }
-      new maplibregl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML(popup_content)
-        .addTo(map);
-    });
+        map.setFilter("pl-layer-voltage", [
+            "all",
+            ["<=", ["get", "Year_start_name"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+        ])
 
-    // Diagram
+        map.setFilter("pl-layer-age", [
+            "all",
+            ["<=", ["get", "Year_start"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+        ])
+        map.setPaintProperty("pl-layer-age", "line-color", [
+            "step",
+            ["-", yearValue, ["get", "Year_start"]],
+            ageColors["0"],
+            2, ageColors["2"],
+            5, ageColors["5"],
+            10, ageColors["10"],
+            15, ageColors["15"],
+            20, ageColors["20"],
+            30, ageColors["30"],
+            40, ageColors["40"],
+            50, ageColors["50"],
+            60, ageColors["60"],
+            70, ageColors["70"],
+            80, ageColors["80"]
+        ])
 
-    // const ctx = document.getElementById("diagram-canvas");
-    // const regions_selector = document.getElementById("select-region");
 
-    // fetch("/diagram_voltage_regions_ru.json")
-    //   .then((r) => r.json())
-    //   .then((j) => {
-    //     j.map(
-    //       (e) =>
-    //         (regions_selector.innerHTML += `<option value="${e.region}">${e.region}</option>`)
-    //     );
-    //     let chart = new Chart(
-    //       ctx,
-    //       j.find((e) => e.region == "РФ")
-    //     );
-    //     regions_selector.onchange = function () {
-    //       const clickedRegion = this.value;
-    //       // console.log(clickedRegion);
-    //       chart.destroy();
-    //       chart = new Chart(
-    //         ctx,
-    //         j.find((e) => e.region == clickedRegion)
-    //       );
-    //     };
-    //   });
-  });
-});
+        map.setFilter("pl-grey-layer", [
+            "all",
+            ["<=", ["get", "Year_start"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+        ])
+        map.setFilter("modifications-layer", ["==", ["get", "Year"], yearValue])
+    })
+
+
+    /* ---
+    Карта 
+    --- */
+
+    map.addSource("pl", {
+        type: "vector",
+        url: "pmtiles://pl.pmtiles",
+        attribution: "Карпачевский А. М., Титов Г. С."
+    })
+    map.addSource("modifications", {
+        type: "vector",
+        url: "pmtiles://modifications.pmtiles"
+    })
+
+
+    map.addLayer({
+        // напряжение
+        id: "pl-layer-voltage",
+        type: "line",
+        source: "pl",
+        "source-layer": "PL_FeaturesToJSON",
+        paint: {
+            "line-color": [
+                "match",
+                ["get", "Voltage"],
+                220, voltageColors["220"],
+                330, voltageColors["330"],
+                400, voltageColors["400"],
+                500, voltageColors["500"],
+                750, voltageColors["750"],
+                800, voltageColors["800"],
+                "#999999"
+            ],
+            "line-width": 2
+        },
+        filter: [
+            "all",
+            ["<=", ["get", "Year_start_name"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
+        ]
+    })
+    map.addLayer({
+        // возраст
+        id: "pl-layer-age",
+        type: "line",
+        source: "pl",
+        "source-layer": "PL_FeaturesToJSON",
+        paint: {
+            "line-color": [
+                "step",
+                ["-", yearValue, ["get", "Year_start"]],
+                ageColors["0"],
+                2, ageColors["2"],
+                5, ageColors["5"],
+                10, ageColors["10"],
+                15, ageColors["15"],
+                20, ageColors["20"],
+                30, ageColors["30"],
+                40, ageColors["40"],
+                50, ageColors["50"],
+                60, ageColors["60"],
+                70, ageColors["70"],
+                80, ageColors["80"]
+            ],
+            "line-width": 2
+        },
+        layout: { visibility: "none" },
+        filter: [
+            "all",
+            ["<=", ["get", "Year_start"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+        ]
+    })
+
+    map.addLayer({
+        id: "pl-grey-layer",
+        type: "line",
+        source: "pl",
+        "source-layer": "PL_FeaturesToJSON",
+        paint: {
+            "line-color": "grey",
+            "line-width": 1
+        },
+        layout: { visibility: "none" },
+        filter: [
+            "all",
+            ["<=", ["get", "Year_start"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+        ]
+    })
+    map.addLayer({
+        id: "modifications-layer",
+        type: "line",
+        source: "modifications",
+        "source-layer": "modifications",
+        paint: {
+            "line-color": [
+                "match",
+                ["get", "Segment_Type"],
+                "Branch construction", modificationColors["Branch construction"],
+                "Branch dismantling", modificationColors["Branch dismantling"],
+                "Cut construction", modificationColors["Cut construction"],
+                "Cut dismantling", modificationColors["Cut dismantling"],
+                "Line dismantling", modificationColors["Line dismantling"],
+                "New line construction", modificationColors["New line construction"],
+                "Re-routing construction", modificationColors["Re-routing construction"],
+                "Re-routing dismantling", modificationColors["Re-routing dismantling"],
+                modificationColors["No modifications"]
+            ],
+            "line-width": 2
+        },
+        layout: { visibility: "none" },
+        filter: ["==", ["get", "Year"], yearValue]
+    })
+
+    map.addLayer({
+        // отслеживание ховера и кликов
+        id: "pl-layer-interactions",
+        type: "line",
+        source: "pl",
+        "source-layer": "PL_FeaturesToJSON",
+        paint: {
+            "line-color": "transparent",
+            "line-width": 4
+        },
+        filter: [
+            "all",
+            ["<=", ["get", "Year_start_name"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
+        ]
+    })
+    map.addLayer({
+        // подсветка ховера
+        id: "pl-layer-hover",
+        type: "line",
+        source: "pl",
+        "source-layer": "PL_FeaturesToJSON",
+        paint: {
+            "line-color": "cyan",
+            "line-opacity": 0.7,
+            "line-width": 4
+        },
+        filter: ["==", ["get", "Name"], '']
+    })
+    map.addLayer({
+        // подсветка клика
+        id: "pl-layer-click",
+        type: "line",
+        source: "pl",
+        "source-layer": "PL_FeaturesToJSON",
+        paint: {
+            "line-color": "cyan",
+            "line-width": 4
+        },
+        filter: ["==", ["get", "Name"], '']
+    })
+
+    map.on("mousemove", "pl-layer-interactions", (e) => {
+        if (map.getZoom() < 5) return
+        map.setFilter("pl-layer-hover", ["==", ["get", "Name"], e.features[0].properties.Name])
+    })
+
+    map.on("click", () => {
+        map.setFilter("pl-layer-click", ["==", ["get", "Name"], ''])
+    })
+
+    map.on("click", "pl-layer-interactions", (e) => {
+        const clickedNames = e.features.map(f => f.properties.Name)
+        map.setFilter("pl-layer-click", ["in", ["get", "Name"], ["literal", clickedNames]])
+        map.easeTo({ center: e.lngLat })
+        const popupContent = e.features.map(f => `<p>${f.properties.Name}</p>`).join('')
+        new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(popupContent)
+            .addTo(map)
+    })
+
+    map.on("mouseenter", "pl-layer-interactions", () => {
+        map.getCanvas().style.cursor = "pointer"
+    })
+    map.on("mouseleave", "pl-layer-interactions", () => {
+        map.getCanvas().style.cursor = ""
+        map.setFilter("pl-layer-hover", ["==", ["get", "Name"], ''])
+    })
+
+
+    document.getElementById("voltage-tab").addEventListener("click", () => {
+        map.setLayoutProperty("pl-layer-voltage", "visibility", "visible")
+        map.setLayoutProperty("pl-layer-age", "visibility", "none")
+        map.setLayoutProperty("modifications-layer", "visibility", "none")
+        map.setLayoutProperty("pl-grey-layer", "visibility", "none")
+
+
+        document.getElementById("legend-voltage").style.display = "block"
+        document.getElementById("legend-age").style.display = "none"
+        document.getElementById("legend-modifications").style.display = "none"
+
+
+        document.getElementById("voltage-tab").classList.add("selected")
+        document.getElementById("age-tab").classList.remove("selected")
+        document.getElementById("modifications-tab").classList.remove("selected")
+    })
+    document.getElementById("age-tab").addEventListener("click", () => {
+        map.setLayoutProperty("pl-layer-voltage", "visibility", "none")
+        map.setLayoutProperty("pl-layer-age", "visibility", "visible")
+        map.setLayoutProperty("modifications-layer", "visibility", "none")
+        map.setLayoutProperty("pl-grey-layer", "visibility", "none")
+
+        document.getElementById("legend-voltage").style.display = "none"
+        document.getElementById("legend-age").style.display = "block"
+        document.getElementById("legend-modifications").style.display = "none"
+
+        document.getElementById("voltage-tab").classList.remove("selected")
+        document.getElementById("age-tab").classList.add("selected")
+        document.getElementById("modifications-tab").classList.remove("selected")
+
+    })
+    document.getElementById("modifications-tab").addEventListener("click", () => {
+        map.setLayoutProperty("pl-layer-voltage", "visibility", "none")
+        map.setLayoutProperty("pl-layer-age", "visibility", "none")
+        map.setLayoutProperty("modifications-layer", "visibility", "visible")
+        map.setLayoutProperty("pl-grey-layer", "visibility", "visible")
+
+        document.getElementById("legend-voltage").style.display = "none"
+        document.getElementById("legend-age").style.display = "none"
+        document.getElementById("legend-modifications").style.display = "block"
+
+        document.getElementById("voltage-tab").classList.remove("selected")
+        document.getElementById("age-tab").classList.remove("selected")
+        document.getElementById("modifications-tab").classList.add("selected")
+    })
+
+    document.getElementById("close-sidebar").addEventListener("click", () => {
+        map.easeTo({
+            padding: {
+                left: 0
+            },
+            duration: 500
+        })
+        document.getElementById("sidebar").classList.add("collapsed")
+
+    })
+
+    document.getElementById("open-sidebar").addEventListener("click", () => {
+        map.easeTo({
+            padding: {
+                left: 400
+            },
+            duration: 500
+        })
+        document.getElementById("sidebar").classList.remove("collapsed")
+    })
+})
