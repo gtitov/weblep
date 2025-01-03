@@ -232,12 +232,12 @@ map.on("load", () => {
 
     map.addSource("pl", {
         type: "vector",
-        url: "pmtiles://pl7.pmtiles",
+        url: "pmtiles://https://resources.powerlines.one/pl7.pmtiles",
         attribution: "Карпачевский А. М., Титов Г. С."
     })
     map.addSource("modifications", {
         type: "vector",
-        url: "pmtiles://modifications.pmtiles"
+        url: "pmtiles://https://resources.powerlines.one/modifications7.pmtiles"
     })
 
 
