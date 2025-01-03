@@ -9,6 +9,8 @@ const map = new maplibregl.Map({
     hash: true
 })
 
+map.getCanvas().style.cursor = "crosshair"
+
 // Смещение за открытый sidebar
 map.setPadding({ left: 400 })
 
@@ -55,6 +57,7 @@ const modificationColors = {
     "New line construction": "#1d8c3b",
     "Re-routing construction": "#52ced2",
     "Re-routing dismantling": "#f0d730",
+    "Voltage modification": "#ad4323",
     "No modifications": "#aaa"
 }
 
@@ -67,6 +70,7 @@ const modificationTranslations = {
     "New line construction": "Строительство новой линии",
     "Re-routing construction": "Переустройство линии",
     "Re-routing dismantling": "Демонтаж при переустройстве",
+    "Voltage modification": "Изменение напряжения",
     "No modifications": "Неизменные сегменты"
 }
 
@@ -181,19 +185,19 @@ map.on("load", () => {
         map.setFilter("pl-layer-interactions", [
             "all",
             ["<=", ["get", "Year_start_name"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
         ])
 
         map.setFilter("pl-layer-voltage", [
             "all",
             ["<=", ["get", "Year_start_name"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
         ])
 
         map.setFilter("pl-layer-age", [
             "all",
             ["<=", ["get", "Year_start"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
         ])
         map.setPaintProperty("pl-layer-age", "line-color", [
             "step",
@@ -216,7 +220,7 @@ map.on("load", () => {
         map.setFilter("pl-grey-layer", [
             "all",
             ["<=", ["get", "Year_start"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
         ])
         map.setFilter("modifications-layer", ["==", ["get", "Year"], yearValue])
     })
@@ -228,7 +232,7 @@ map.on("load", () => {
 
     map.addSource("pl", {
         type: "vector",
-        url: "pmtiles://pl.pmtiles",
+        url: "pmtiles://pl7.pmtiles",
         attribution: "Карпачевский А. М., Титов Г. С."
     })
     map.addSource("modifications", {
@@ -400,10 +404,10 @@ map.on("load", () => {
     })
 
     map.on("mouseenter", "pl-layer-interactions", () => {
-        map.getCanvas().style.cursor = "pointer"
+        // map.getCanvas().style.cursor = "pointer"
     })
     map.on("mouseleave", "pl-layer-interactions", () => {
-        map.getCanvas().style.cursor = ""
+        // map.getCanvas().style.cursor = ""
         map.setFilter("pl-layer-hover", ["==", ["get", "Name"], ''])
     })
 
