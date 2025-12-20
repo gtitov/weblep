@@ -1,10 +1,14 @@
 maplibregl.addProtocol("pmtiles", new pmtiles.Protocol().tile)
 
+const DEV = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+
+const TILES_HOST = DEV ? "http://localhost:5500" : "https://resources.powerlines.one"
+
 const map = new maplibregl.Map({
     style: 'https://raw.githubusercontent.com/gtitov/basemaps/refs/heads/master/positron-nolabels.json',
     center: [90, 50],
     zoom: 2.5,
-    maxZoom: 11,
+    maxZoom: 12,
     container: 'map',
     hash: true
 })
@@ -223,6 +227,19 @@ map.on("load", () => {
             [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
         ])
         map.setFilter("modifications-layer", ["==", ["get", "Year"], yearValue])
+
+        map.setFilter("stations-layer", [
+            "all",
+            ["==", ["get", "Type"], "ЭС"],
+            ["<=", ["get", "Year_start"], yearValue],
+            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+        ])
+        map.setFilter("substations-layer", [
+            "all",
+            ["==", ["get", "Type"], "ПС"],
+            ["<=", ["get", "Year_start"], yearValue],
+            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+        ])
     })
 
 
@@ -232,12 +249,16 @@ map.on("load", () => {
 
     map.addSource("pl", {
         type: "vector",
-        url: "pmtiles://https://resources.powerlines.one/pl7.pmtiles",
+        url: `pmtiles://${TILES_HOST}/pl7.pmtiles`,
         attribution: "Карпачевский А. М., Титов Г. С."
     })
     map.addSource("modifications", {
         type: "vector",
-        url: "pmtiles://https://resources.powerlines.one/modifications7.pmtiles"
+        url: `pmtiles://${TILES_HOST}/modifications7.pmtiles`
+    })
+    map.addSource("points", {
+        type: "vector",
+        url: `pmtiles://${TILES_HOST}/points7.pmtiles`
     })
 
 
@@ -339,6 +360,61 @@ map.on("load", () => {
         },
         layout: { visibility: "none" },
         filter: ["==", ["get", "Year"], yearValue]
+    })
+
+    const squareImage = new Image();
+    squareImage.src = "./white-square.png";
+    squareImage.onload = () => {
+        map.addImage("white-square", squareImage)
+        map.addLayer({
+            id: "stations-layer",
+            type: "symbol",
+            source: "points",
+            "source-layer": "points",
+            layout: {
+                "icon-image": "white-square",
+                "icon-overlap": "always",
+                "icon-size": 0.5
+            },
+            filter: [
+                "all",
+                ["==", ["get", "Type"], "ЭС"],
+                ["<=", ["get", "Year_start"], yearValue],
+                [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ],
+            minzoom: 5
+        })
+    }
+
+    map.addLayer({
+        id: "substations-layer",
+        type: "circle",
+        source: "points",
+        "source-layer": "points",
+        paint: {
+            "circle-radius": 4,
+            "circle-color": [
+                "match",
+                ["get", "Voltage"],
+                110, "#00B4C8",
+                220, "#C7C700",
+                330, "#008C00",
+                400, "#EF951E",
+                500, "#C70000",
+                750, "#0000C7",
+                800, "#0000C7",
+                "#FFFFFF"
+            ],
+            "circle-stroke-color": "#FFF",
+            "circle-stroke-width": 1
+        },
+        filter: [
+            "all",
+            ["==", ["get", "Type"], "ПС"],
+            ["<=", ["get", "Year_start"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+        ],
+        minzoom: 5
     })
 
     map.addLayer({
