@@ -285,7 +285,7 @@ map.on("load", () => {
         filter: [
             "all",
             ["<=", ["get", "Year_start_name"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
+            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
         ]
     })
     map.addLayer({
@@ -317,7 +317,7 @@ map.on("load", () => {
         filter: [
             "all",
             ["<=", ["get", "Year_start"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
         ]
     })
 
@@ -334,7 +334,7 @@ map.on("load", () => {
         filter: [
             "all",
             ["<=", ["get", "Year_start"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
         ]
     })
     map.addLayer({
@@ -380,7 +380,7 @@ map.on("load", () => {
                 "all",
                 ["==", ["get", "Type"], "ЭС"],
                 ["<=", ["get", "Year_start"], yearValue],
-                [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+                [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
             ],
             minzoom: 5
         })
@@ -412,7 +412,7 @@ map.on("load", () => {
             "all",
             ["==", ["get", "Type"], "ПС"],
             ["<=", ["get", "Year_start"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
         ],
         minzoom: 5
     })
@@ -430,7 +430,7 @@ map.on("load", () => {
         filter: [
             "all",
             ["<=", ["get", "Year_start_name"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
+            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
         ]
     })
     map.addLayer({
@@ -448,7 +448,7 @@ map.on("load", () => {
             'all',
             ["==", ["get", "Name"], ''],
             ["<=", ["get", "Year_start_name"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
         ]
     })
     map.addLayer({
@@ -465,7 +465,7 @@ map.on("load", () => {
             'all',
             ["==", ["get", "Name"], ''],
             ["<=", ["get", "Year_start_name"], yearValue],
-            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
         ]
     })
 
@@ -477,7 +477,7 @@ map.on("load", () => {
                 'all',
                 ["==", ["get", "Name"], e.features[0].properties.Name],
                 ["<=", ["get", "Year_start_name"], yearValue],
-                [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+                [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
             ]
         )
     })
@@ -494,7 +494,7 @@ map.on("load", () => {
                 'all',
                 ["in", ["get", "Name"], ["literal", clickedNames]],
                 ["<=", ["get", "Year_start_name"], yearValue],
-                [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+                [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
             ]
 
         )
