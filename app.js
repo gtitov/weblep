@@ -368,7 +368,12 @@ map.on("load", () => {
             "line-opacity": 0.7,
             "line-width": 4
         },
-        filter: ["==", ["get", "Name"], '']
+        filter: [
+            'all',
+            ["==", ["get", "Name"], ''],
+            ["<=", ["get", "Year_start_name"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+        ]
     })
     map.addLayer({
         // подсветка клика
@@ -380,12 +385,25 @@ map.on("load", () => {
             "line-color": "cyan",
             "line-width": 4
         },
-        filter: ["==", ["get", "Name"], '']
+        filter: [
+            'all',
+            ["==", ["get", "Name"], ''],
+            ["<=", ["get", "Year_start_name"], yearValue],
+            [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+        ]
     })
 
     map.on("mousemove", "pl-layer-interactions", (e) => {
         if (map.getZoom() < 5) return
-        map.setFilter("pl-layer-hover", ["==", ["get", "Name"], e.features[0].properties.Name])
+        map.setFilter(
+            "pl-layer-hover",
+            [
+                'all',
+                ["==", ["get", "Name"], e.features[0].properties.Name],
+                ["<=", ["get", "Year_start_name"], yearValue],
+                [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            ]
+        )
     })
 
     map.on("click", () => {
@@ -394,7 +412,16 @@ map.on("load", () => {
 
     map.on("click", "pl-layer-interactions", (e) => {
         const clickedNames = e.features.map(f => f.properties.Name)
-        map.setFilter("pl-layer-click", ["in", ["get", "Name"], ["literal", clickedNames]])
+        map.setFilter(
+            "pl-layer-click",
+            [
+                'all',
+                ["in", ["get", "Name"], ["literal", clickedNames]],
+                ["<=", ["get", "Year_start_name"], yearValue],
+                [">=", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            ]
+
+        )
         map.easeTo({ center: e.lngLat })
         const popupContent = e.features.map(f => `<p>${f.properties.Name}</p>`).join('')
         new maplibregl.Popup()
