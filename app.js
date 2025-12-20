@@ -246,7 +246,7 @@ map.on("load", () => {
         id: "pl-layer-voltage",
         type: "line",
         source: "pl",
-        "source-layer": "PL_FeaturesToJSON",
+        "source-layer": "PL",
         paint: {
             "line-color": [
                 "match",
@@ -272,7 +272,7 @@ map.on("load", () => {
         id: "pl-layer-age",
         type: "line",
         source: "pl",
-        "source-layer": "PL_FeaturesToJSON",
+        "source-layer": "PL",
         paint: {
             "line-color": [
                 "step",
@@ -304,7 +304,7 @@ map.on("load", () => {
         id: "pl-grey-layer",
         type: "line",
         source: "pl",
-        "source-layer": "PL_FeaturesToJSON",
+        "source-layer": "PL",
         paint: {
             "line-color": "grey",
             "line-width": 1
@@ -346,7 +346,7 @@ map.on("load", () => {
         id: "pl-layer-interactions",
         type: "line",
         source: "pl",
-        "source-layer": "PL_FeaturesToJSON",
+        "source-layer": "PL",
         paint: {
             "line-color": "transparent",
             "line-width": 4
@@ -362,7 +362,7 @@ map.on("load", () => {
         id: "pl-layer-hover",
         type: "line",
         source: "pl",
-        "source-layer": "PL_FeaturesToJSON",
+        "source-layer": "PL",
         paint: {
             "line-color": "cyan",
             "line-opacity": 0.7,
@@ -380,7 +380,7 @@ map.on("load", () => {
         id: "pl-layer-click",
         type: "line",
         source: "pl",
-        "source-layer": "PL_FeaturesToJSON",
+        "source-layer": "PL",
         paint: {
             "line-color": "cyan",
             "line-width": 4
