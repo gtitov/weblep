@@ -1,6 +1,9 @@
 import { ageColors, modificationColors, voltageColors } from "./colors.js"
+import { getFilters } from "./filters.js"
+
 
 export const addLayers = (map, yearValue) => {
+    const filters = getFilters(yearValue)
     map.addLayer({
         // напряжение
         id: "pl-layer-voltage",
@@ -11,6 +14,9 @@ export const addLayers = (map, yearValue) => {
             "line-color": [
                 "match",
                 ["get", "Voltage"],
+                35, voltageColors["35"],
+                70, voltageColors["70"],
+                110, voltageColors["110"],
                 220, voltageColors["220"],
                 330, voltageColors["330"],
                 400, voltageColors["400"],
@@ -23,8 +29,8 @@ export const addLayers = (map, yearValue) => {
         },
         filter: [
             "all",
-            ["<=", ["get", "Year_start_name"], yearValue],
-            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
+            ...filters.yearNameFilter,
+            filters.moscowFilter
         ]
     })
     map.addLayer({
@@ -55,8 +61,8 @@ export const addLayers = (map, yearValue) => {
         layout: { visibility: "none" },
         filter: [
             "all",
-            ["<=", ["get", "Year_start"], yearValue],
-            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ...filters.yearFilter,
+            filters.moscowFilter
         ]
     })
 
@@ -72,8 +78,8 @@ export const addLayers = (map, yearValue) => {
         layout: { visibility: "none" },
         filter: [
             "all",
-            ["<=", ["get", "Year_start"], yearValue],
-            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ...filters.yearFilter,
+            filters.moscowFilter
         ]
     })
     map.addLayer({
@@ -118,8 +124,8 @@ export const addLayers = (map, yearValue) => {
             filter: [
                 "all",
                 ["==", ["get", "Type"], "ЭС"],
-                ["<=", ["get", "Year_start"], yearValue],
-                [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+                ...filters.yearFilter,
+                filters.moscowFilter
             ],
             minzoom: 5
         })
@@ -135,13 +141,15 @@ export const addLayers = (map, yearValue) => {
             "circle-color": [
                 "match",
                 ["get", "Voltage"],
-                110, "#00B4C8",
-                220, "#C7C700",
-                330, "#008C00",
-                400, "#EF951E",
-                500, "#C70000",
-                750, "#0000C7",
-                800, "#0000C7",
+                35, voltageColors["35"],
+                70, voltageColors["70"],
+                110, voltageColors["110"],
+                220, voltageColors["220"],
+                330, voltageColors["330"],
+                400, voltageColors["400"],
+                500, voltageColors["500"],
+                750, voltageColors["750"],
+                800, voltageColors["800"],
                 "#FFFFFF"
             ],
             "circle-stroke-color": "#FFF",
@@ -150,8 +158,8 @@ export const addLayers = (map, yearValue) => {
         filter: [
             "all",
             ["==", ["get", "Type"], "ПС"],
-            ["<=", ["get", "Year_start"], yearValue],
-            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ...filters.yearFilter,
+            filters.moscowFilter
         ],
         minzoom: 5
     })
@@ -168,8 +176,8 @@ export const addLayers = (map, yearValue) => {
         },
         filter: [
             "all",
-            ["<=", ["get", "Year_start_name"], yearValue],
-            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue] // нет Year_end = линия не снесена
+            ...filters.yearNameFilter,
+            filters.moscowFilter
         ]
     })
     map.addLayer({
@@ -186,8 +194,8 @@ export const addLayers = (map, yearValue) => {
         filter: [
             'all',
             ["==", ["get", "Name"], ''],
-            ["<=", ["get", "Year_start_name"], yearValue],
-            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            ...filters.yearNameFilter,
+            filters.moscowFilter
         ]
     })
     map.addLayer({
@@ -203,8 +211,8 @@ export const addLayers = (map, yearValue) => {
         filter: [
             'all',
             ["==", ["get", "Name"], ''],
-            ["<=", ["get", "Year_start_name"], yearValue],
-            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            ...filters.yearNameFilter,
+            filters.moscowFilter
         ]
     })
 }

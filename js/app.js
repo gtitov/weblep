@@ -2,6 +2,7 @@ import { addLayers } from "./addLayers.js"
 import { addLegend } from "./addLegend.js"
 import { addSources } from "./addSources.js"
 import { ageColors } from "./colors.js"
+import { getFilters } from "./filters.js"
 import map from "./initMap.js"
 
 map.on("load", () => {
@@ -12,7 +13,10 @@ map.on("load", () => {
     const yearsRange = document.getElementById("years-range")
     const yearsRangeMin = parseInt(yearsRange.getAttribute("min"))
     const yearsRangeMax = parseInt(yearsRange.getAttribute("max"))
+
     let yearValue = parseInt(yearsRange.value)
+    const filters = getFilters(yearValue)
+
     yearsRange.addEventListener("input", (e) => {
         yearValue = parseInt(e.target.value)
         document.getElementById("year-label-sidebar").innerText = yearValue
@@ -71,23 +75,26 @@ map.on("load", () => {
         playInProgress = false
     })
 
+
     yearsRange.addEventListener("change", () => {
+        const filters = getFilters(yearValue)
+
         map.setFilter("pl-layer-interactions", [
             "all",
-            ["<=", ["get", "Year_start_name"], yearValue],
-            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            ...filters.yearNameFilter,
+            filters.moscowFilter
         ])
 
         map.setFilter("pl-layer-voltage", [
             "all",
-            ["<=", ["get", "Year_start_name"], yearValue],
-            [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+            ...filters.yearNameFilter,
+            filters.moscowFilter
         ])
 
         map.setFilter("pl-layer-age", [
             "all",
-            ["<=", ["get", "Year_start"], yearValue],
-            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ...filters.yearFilter,
+            filters.moscowFilter
         ])
         map.setPaintProperty("pl-layer-age", "line-color", [
             "step",
@@ -109,22 +116,22 @@ map.on("load", () => {
 
         map.setFilter("pl-grey-layer", [
             "all",
-            ["<=", ["get", "Year_start"], yearValue],
-            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ...filters.yearFilter,
+            filters.moscowFilter
         ])
         map.setFilter("modifications-layer", ["==", ["get", "Year"], yearValue])
 
         map.setFilter("stations-layer", [
             "all",
             ["==", ["get", "Type"], "ЭС"],
-            ["<=", ["get", "Year_start"], yearValue],
-            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ...filters.yearFilter,
+            filters.moscowFilter
         ])
         map.setFilter("substations-layer", [
             "all",
             ["==", ["get", "Type"], "ПС"],
-            ["<=", ["get", "Year_start"], yearValue],
-            [">", ["coalesce", ["get", "Year_end"], 3000], yearValue]
+            ...filters.yearFilter,
+            filters.moscowFilter
         ])
     })
 
@@ -132,7 +139,6 @@ map.on("load", () => {
     /* ---
     Карта 
     --- */
-
     addSources(map)
     addLayers(map, yearValue)
     addLegend()
@@ -140,18 +146,22 @@ map.on("load", () => {
     map.on("mousemove", "pl-layer-interactions", (e) => {
         if (map.getZoom() < 5) return
         map.setFilter(
-            "pl-layer-hover",
+            "pl-layer-hover", // mousemove on interactions layer changes hover layer
             [
                 'all',
                 ["==", ["get", "Name"], e.features[0].properties.Name],
-                ["<=", ["get", "Year_start_name"], yearValue],
-                [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+                ...filters.yearNameFilter,
+                filters.moscowFilter
             ]
         )
     })
 
+    map.on("mouseleave", "pl-layer-interactions", () => {
+        map.setFilter("pl-layer-hover", ["literal", false])
+    })
+
     map.on("click", () => {
-        map.setFilter("pl-layer-click", ["==", ["get", "Name"], ''])
+        map.setFilter("pl-layer-click", ["literal", false])
     })
 
     map.on("click", "pl-layer-interactions", (e) => {
@@ -161,8 +171,8 @@ map.on("load", () => {
             [
                 'all',
                 ["in", ["get", "Name"], ["literal", clickedNames]],
-                ["<=", ["get", "Year_start_name"], yearValue],
-                [">", ["coalesce", ["get", "Year_end_name"], 3000], yearValue]
+                ...filters.yearNameFilter,
+                filters.moscowFilter
             ]
 
         )
@@ -174,13 +184,7 @@ map.on("load", () => {
             .addTo(map)
     })
 
-    map.on("mouseenter", "pl-layer-interactions", () => {
-        // map.getCanvas().style.cursor = "pointer"
-    })
-    map.on("mouseleave", "pl-layer-interactions", () => {
-        // map.getCanvas().style.cursor = ""
-        map.setFilter("pl-layer-hover", ["==", ["get", "Name"], ''])
-    })
+
 
 
     document.getElementById("voltage-tab").addEventListener("click", () => {
